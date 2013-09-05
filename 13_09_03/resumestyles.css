@@ -1,21 +1,47 @@
+h3 {
+	margin: 0;
+	padding: 0;
+}
+
+header {
+	margin: 3px;
+	padding: 0;
+}
+
 h4 {
 	font-style:italic;
 	margin: 0;
 	padding: 0;}
+
+td {
+	vertical-align: text-top;
+	margin: 0;
+	padding: 0;
+}
 
 p {
 	margin: 0;
 	padding: 0;
 }
 
-hr {
+hr.invis {
 	visibility: hidden;
 }
 
+.headerfields strong {
+	font-size: 18pt;
+}.rs {	float: right;}
+
+#address, #email, #phone {
+	display: inline;
+	font-size: 16pt;
+}#name {	display: inline;	font-size: 45pt;}
+
 #left-column {
-	width:70%;
+	width:50%;
 }
 
 #right-column {
-	width:30%;
-}
+    width: 50%;
+  }
+
