@@ -1,0 +1,21 @@
+h4 {
+	font-style:italic;
+	margin: 0;
+	padding: 0;}
+
+p {
+	margin: 0;
+	padding: 0;
+}
+
+hr {
+	visibility: hidden;
+}
+
+#left-column {
+	width:70%;
+}
+
+#right-column {
+	width:30%;
+}
