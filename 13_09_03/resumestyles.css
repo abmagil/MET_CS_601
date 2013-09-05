@@ -1,4 +1,4 @@
-@font-face {	font-family: TrajanPro;	src: url(TrajanPro-Regular.ttf)}body {	font-size: 1.25em;}h3 {	margin: 0;
+@font-face {	font-family: TrajanPro;	src:	url(trajan_pro.woff), 			url(TrajanPro-Regular.ttf)}body {	font-size: 1.25em;}h3 {	margin: 0;
 	padding: 0;
 }
 
@@ -9,7 +9,7 @@ header {	font-family: TrajanPro;	margin: 3px;
 h4 {
 	font-style:italic;
 	margin: 0;
-	padding: 0;}table {	padding: 3px;}
+	padding: 0;}table {	padding: 3px;	border-spacing: 45px 1px;}
 
 td {
 	vertical-align: text-top;
@@ -19,18 +19,18 @@ td {
 
 p {
 	margin: 0;
-	padding: 0;}
+	padding: 0;}ul {	margin: 0;}
 
 hr.invis {
-	visibility: hidden;
+	visibility: hidden;	padding: 5px;	margin: 0;
 }
-
+
 .rs {	float: right;	vertical-align: top;}
 
 #address, #email, #phone {
-	display: inline;	font-size: 1.5em;}#name {	display: inline;	font-size: 3em;}
+	display: inline;	font-size: 1.5em;}#name {	display: inline;	font-size: 3em;	font-weight: bolder;}
 
 #left-column {
-	width:40%;
-}
+	width:35%;
+}#references {	text-align: center;}
 
