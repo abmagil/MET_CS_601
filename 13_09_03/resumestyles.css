@@ -1,17 +1,15 @@
-h3 {
-	margin: 0;
+@font-face {	font-family: TrajanPro;	src: url(TrajanPro-Regular.ttf)}body {	font-size: 1.25em;}h3 {	margin: 0;
 	padding: 0;
 }
 
-header {
-	margin: 3px;
+header {	font-family: TrajanPro;	margin: 3px;
 	padding: 0;
 }
 
 h4 {
 	font-style:italic;
 	margin: 0;
-	padding: 0;}
+	padding: 0;}table {	padding: 3px;}
 
 td {
 	vertical-align: text-top;
@@ -21,27 +19,18 @@ td {
 
 p {
 	margin: 0;
-	padding: 0;
-}
+	padding: 0;}
 
 hr.invis {
 	visibility: hidden;
 }
 
-.headerfields strong {
-	font-size: 18pt;
-}.rs {	float: right;}
+.rs {	float: right;	vertical-align: top;}
 
 #address, #email, #phone {
-	display: inline;
-	font-size: 16pt;
-}#name {	display: inline;	font-size: 45pt;}
+	display: inline;	font-size: 1.5em;}#name {	display: inline;	font-size: 3em;}
 
 #left-column {
-	width:50%;
+	width:40%;
 }
-
-#right-column {
-    width: 50%;
-  }
 
