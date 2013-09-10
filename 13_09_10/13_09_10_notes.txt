@@ -9,3 +9,28 @@ CSS: can link in, embed in HTML (in its own tag) or inline it (inside of modifie
 	
 Chrome DevTools: when looking at the CSS for an element, Chrome will show what CSS applied and what existed.  Overridden CSS will be struck through
 
+<p> vs <div>: <p> has natural padding, whereas <div> does not.
+
+"Unobtrusive JS/CSS": keep ONLY html in html files, apply events and CSS in their own files (JS and CSS respectively).
+	-Ensures that HTML is just your structured material.  Just nouns. 
+
+<header>: For structuring website.  Can place h* into header tag, in fact, intended to wrap them.  Can also include navigational aids
+	mock up with CSS for backwards compatibility: "header{ display:block}"
+<section>: generic container tag.  Meant to be invisible to user, so DO NOT style, make main content area.
+	-Tabs in website
+	-segments of an "About us"
+	-pieces of a Terms of Service.
+	-Rule of thumb for use: A section has semantic meaning; it implies that all of its content is related or grouped.
+<article>: composition that forms an INDEPENDENT portion of a document.  For instance, a forum post/comment, a widget
+	-a specialized kind of <section> which has additional semantic meaning (independence)
+<nav>: A grouping of navigation links.  Additional semantic purpose.  Should replace <div id="nav"> only.
+	-Table of contents
+	-Previous/next buttons
+	-Breadcrumb navigation
+<aside>: Used to relate a block to something adjacent.  NOT for sidebars holding major content.
+<footer>: A footer
+
+Forms
+	GET limits: 2048k (varies by browser.  IE has the lowest.)
+	Without "action": form reloads
+	Without "method": GET used
