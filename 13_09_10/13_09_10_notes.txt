@@ -1,0 +1,11 @@
+Review of CSS:
+	.class
+	#id
+	
+Talk about the HW: confirming that we're up and running
+
+CSS: can link in, embed in HTML (in its own tag) or inline it (inside of modified tag)
+	Cascade: Inline > Embedded > Linked (where ">" = "overrides")
+	
+Chrome DevTools: when looking at the CSS for an element, Chrome will show what CSS applied and what existed.  Overridden CSS will be struck through
+
