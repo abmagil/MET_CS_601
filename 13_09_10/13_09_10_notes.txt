@@ -34,3 +34,21 @@ Forms
 	GET limits: 2048k (varies by browser.  IE has the lowest.)
 	Without "action": form reloads
 	Without "method": GET used
+	Without name attributes on controls, nothing goes to server (name is key in key-value pairing)
+	"required" attribute: validator for controls.  Means control cannot be empty.  Further checks available based on type (text, number, date, etc.)
+	"pattern" attribute: allows use of regex
+	"enctype" attribute: specificies the content type for encoding form data.  defaults to "application/x-www-form-urlencoded" for standard behavior.  Alternative is "multipart/form-data" for non-ASCII or binary data
+	"disabled" vs "readonly": both are uneditable by the user.  However, readonly controls are sent to the server on submit, whereas disabled is not.
+	"maxlength" attribute: if there are restrictions imposed by the underlying database, use this attribute to impose them client-side
+	"size" attribute: a raw number.  Unit is the size of the largest glyph in given font family.
+	secret trick: <input type="file"> will automatically go to the file upload popup
+	"accept" attribute: restricts filetypes acceptable for upload.
+
+Objects in the browser: State and Behavior
+	State: Attributes
+	Behavior: mouseover, pinch, etc.  Act on the state of an object
+	
+<NOTE>Hopefully I don't die from the seemingly pure ammonia I just ate from Panda Express
+
+anyway....
+Data response formats: XML, JSON, raw text, markup (PHP, HTML, JSP)
