@@ -1,0 +1,82 @@
+Question 1.
+a. Show how to code an unordered list, use any list marker you want.   You must use at least 3 list items.
+	<ul>
+		<li>This is my first item.</li>
+		<li><p>List items can contain many other tags.</p></li>
+		<li>But I don't know exactly how they interplay...</li>
+	</ul>
+
+b. Show how to code an ordered list, again, using any list marker you want. You must use at least 3 list items.
+	<ol>
+		<li>This is also a first item.  But unlike in the ul tag, it has an order.</li>
+		<li>In this case, that means a number.</li>
+		<li>But it could be changed to other things, like letters.</li>
+	</ol>
+	
+c. Show how to properly code nested lists:  one list must be ordered, the other, unordered. You must use at least list items.
+	<ol>
+		<li>This will be a 1.
+			<ul>
+				<li>This will have a bullet point</li>
+				<li>So will this</li>
+				<li>Because they are directly contained in a ul.</li>
+			</ul>
+		</li>
+		<li>This will be a 2.
+			<ul>
+				<li>This will have a bullet point</li>
+				<li>So will this</li>
+				<li>You get the drill.</li>
+			</ul>
+		</li>
+	</ol>
+	
+d. Show how to code description lists.  You must use at least 3 list items.
+<dl>
+	<dt>Title</dt>
+	<dd>This is the definition for a title</dd>
+	<dt>Definition List</dt>
+	<dd>An example of semantic recursion</dd>
+	<dt>Plagiarism</dt>
+	<dd>A bad thing, which I avoided when learning from the book how to code a definition list.</dd>
+</dl>
+
+e. Show how you change the list markers using CSS for an unordered list.   You must use at least 3 list items.
+	<style>
+		.square {
+			list-style-type: square
+		}
+	</style>
+	<ul class="square">
+		<li>This is my first item.</li>
+		<li><p>List items can contain many other tags.</p></li>
+		<li>But I don't know exactly how they interplay...</li>
+	</ul>
+	
+f. Show how you change the list markers using CSS for an ordered list.  You must use at least 3 list items.
+	<style>
+		.letters {
+			list-style-type: lower-alpha
+		}
+	</style>
+	<ol class="letters">
+		<li>This is also a first item.  But unlike in the ul tag, it has an order.</li>
+		<li>In this case, that means a lower-case letter.</li>
+		<li>But it could be changed to other things, like numbers.</li>
+	</ol>
+	
+g. Show how you change the alignment (padding, margin, etc) of an unordered list using CSS.  You must use at least 3 list items.
+	<style>
+		ul {padding: 50}
+		li {margin: 10;
+			font-style: italic;
+		}
+	</style>
+	<ul>This is the title of my list.
+		<li>This is my first item.</li>
+		<li>List items can contain many other tags.</li>
+		<li>But I don't know exactly how they interplay...</li>
+	</ul>
+	
+h. Show how you link your home page  (index.html) to:  Google's home page, Boston.com and bu.edu.
+see attached index1.html
