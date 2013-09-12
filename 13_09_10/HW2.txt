@@ -79,7 +79,13 @@ g. Show how you change the alignment (padding, margin, etc) of an unordered list
 	</ul>
 	
 h. Show how you link your home page  (index.html) to:  Google's home page, Boston.com and bu.edu.
-	See attached index1.html
+	See attached index_h.html
 	
 i. Show how you use an image (any image; such as a football) as a link to The New England Patriots home page.
-	see attached index2.html
+	See attached index_i.html
+	
+j. Show how you create a link to a PDF file (put one at your webserver's root directory) on your home page (index.html).
+	See attached index_j.html
+
+k. Show how you create a link to a music file (put on at your webserver's root directory) on your home page (index.html).
+	See attached index_k.html
