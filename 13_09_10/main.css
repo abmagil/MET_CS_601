@@ -1,3 +1,20 @@
 a {
 	display: block
 }
+
+#question2 {
+	float: right;
+	height: 100px;
+	width: auto;
+	display: inline;
+}
+
+#rollover_demo {
+	background-image: url("images/STOP.gif");
+	width: 256px;
+	height: 166px;
+}
+
+#rollover_demo:hover {
+	background-image: url("images/GO.gif");
+}

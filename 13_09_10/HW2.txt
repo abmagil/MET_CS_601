@@ -89,3 +89,16 @@ j. Show how you create a link to a PDF file (put one at your webserver's root di
 
 k. Show how you create a link to a music file (put on at your webserver's root directory) on your home page (index.html).
 	See attached index1.html
+	
+Question 2.
+a. Show how to include an image on your home page (index.html). 
+	See attached index2.html
+b. Show how to resize an image using CSS.
+	See attached index2.html
+c. Show how you float an image [to the right of]  a 3-item unordered list.
+	See attached index2.html
+d. Show how you do an image rollover without the use of JavaScript.
+	See attached index2.html
+	
+Question 3.
+	See attached index3.html
