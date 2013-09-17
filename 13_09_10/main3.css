@@ -1,0 +1,29 @@
+body {
+	font-weight: bold;
+}
+
+table {
+	border-width: 1px 1px 1px 1px;
+	border-style: solid;
+	border-collapse: collapse;
+	border-color: #808080;
+}
+
+table * {
+	border-width: 1px;
+	border-color: #808080;
+	border-style: solid;
+}
+
+thead tr {
+	background-color: #D3D3D3;
+}
+
+.yellow {
+	background-color: #FAFAD2;
+}
+
+.emails {
+	color: blue;
+	text-decoration: underline;
+}

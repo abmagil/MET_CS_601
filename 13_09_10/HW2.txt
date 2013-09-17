@@ -102,3 +102,6 @@ d. Show how you do an image rollover without the use of JavaScript.
 	
 Question 3.
 	See attached index3.html
+	
+Question 4.
+	See attached index4.html
