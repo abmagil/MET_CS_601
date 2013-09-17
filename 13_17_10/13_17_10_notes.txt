@@ -1,0 +1,14 @@
+Q2: I could, in theory, use tags outside of the DTD, but how any browser would handle them is not standardized.  For instance, they might be ignored and just default to act like <p> or <div>
+Q4: Alignment technically depends on the source language used.  L-to-R (like english) defaults to the left, per the W3
+
+Tables:
+What is the purpose of the <thead>/<tbody>/<tfooter> tags?  Why not just <th>,<tr>?
+	-Allows you to set the size of the table (less than the whole page) and scroll data independently of the headers
+		-Using only CSS, which is nice...
+<td> is only allowable as a child of <tr>
+<caption> MUST be first child of the table
+
+Layout:
+	Spacing: Space between cells
+	Padding: Space between edge of cell and its content
+	Spanning (colspan/rowspan): "For every row you extend through, those rows should not define a cell"
