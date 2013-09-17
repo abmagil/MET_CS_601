@@ -27,6 +27,7 @@ input {
 	padding: 0 0 0 0;
 }
 
+/* Remove number spinner icons for Chrome */
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
@@ -47,21 +48,4 @@ input[type=number]::-webkit-outer-spin-button {
 .fullwidth {
 	width: auto;
 	float: none;
-}
-
-#question2 {
-	float: right;
-	height: 100px;
-	width: auto;
-	display: inline;
-}
-
-#rollover_demo {
-	background-image: url("images/STOP.gif");
-	width: 256px;
-	height: 166px;
-}
-
-#rollover_demo:hover {
-	background-image: url("images/GO.gif");
 }
