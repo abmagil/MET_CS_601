@@ -12,3 +12,20 @@ Layout:
 	Spacing: Space between cells
 	Padding: Space between edge of cell and its content
 	Spanning (colspan/rowspan): "For every row you extend through, those rows should not define a cell"
+
+CSS:
+	"Rule": The list of property-value pairs associated with a single selector ("label" or "label a")
+	"Rule set": A list of CSS rules (probably at the file level?)
+	@import url(path/to/asset) [print,screen,list in CSS DTD]
+	The cascade will automatically combine multiple factors, including: importance, specificity, origin, source
+		Importance: "!important" token will add weight to a rule.  BUT- only IE7+ supports it.
+	Selectors: http://www.w3.org/TR/CSS2/selector.html (CSS2, but still...)
+		"*": matches all elements
+		E: matches any E element
+		E F: matches any F element which is a descendent of any E
+		E > F: matches any F element which is a direct child (first-level) of any E element
+		E+F: matches any F element which is directly preceded by sibling element E
+		E[foo]: matches any E element with attribute foo set (regardless of value)
+		E[foo="bar"]: matches any E element with attribute foo set to value "bar"
+	Selectors can be grouped by comma-separating them ("h1, h2, h3 {}")
+	
