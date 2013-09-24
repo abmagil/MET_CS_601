@@ -1,0 +1,39 @@
+September 24th, 2013
+
+CSS selectors continued:
+
+Attribute selectors: "[]" with something in it-
+	[atr] 		= Any tag with atr set
+	[atr=val] 	= Any tag with atr that matches exactly val
+	[atr-=val]	= Any tag with atr which is space-separated set of values, where one of them is exactly val
+	[atr|=val]	= Any tag with atr which is hyphen-separated set of values which begins with val
+	[atr*=val]	= Any tag with atr containing val anywhere in it
+Adjacent selector:	 "+"
+	Matches a tag which immediately follows the one before it in the CSS rule.
+		"p + div" will match any <div> which is directly after any <p>
+
+Measurements:
+	em: size relative to font
+	ex: size relative to "x" of a font
+	
+	px: Absolutely 1 screen pixel
+	pt: Absolutely 1/72 of an inch
+	pc: 1pc = 12pt
+	in: inch
+	cm: centimeter
+	mm: millimeter
+	
+@-rules
+	conditionals to determine which rules are applied to stylesheet
+	@media print { rule: value; }
+		-This rule will only be applied when the media is a printer
+		
+Pseudoclasses:
+	Subclasses of anchor tag: :link, :visited, :hover, :active (can be multiply declared, but must be in this order)
+	There exist others (for instance, :first-line).  Subsets of the CSS attributes are applicable in these pseudoclasses.  Not all can be used.
+
+Positioning elements:
+	static: the default.  Elements placed as they are written
+	relative: relative to the default (static) location.  Left, right, etc.
+	absolute: Relative to container
+	fixed: relative to browser window
