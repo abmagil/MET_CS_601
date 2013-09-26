@@ -1,0 +1,14 @@
+body {
+	background-color: white;
+	color: orange;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+	font-family: "Times New Roman";
+	color: red;
+}
+
+a[href] {
+	background-color: #ccc;
+}

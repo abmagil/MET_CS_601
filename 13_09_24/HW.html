@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HW3</title>
+		<meta charset="UTF-8" />
+		<style>
+			h2 {
+				font-size: 1.2em;
+				margin: 0;
+			}		
+			.question {
+				font-style: italic;
+				font-weight: bold;
+			}
+
+			.answer {
+				margin-left: 3em;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Part 1</h1>
+		<h2>Answer each of the following questions.</h2>
+		<p class="question">
+			1. When should you use an ID selector over a Class selector?
+		</p>
+		<p class="answer">
+			When you are trying to find something that is unique by design, rather than circumstance.
+		</p>
+		<p class="question">
+			2. What is meant by inheritance in CSS?
+		</p>
+		<p class="answer">
+			Inheritence means that, in the absence of a rule which applies on an element, it will <i>inherit</i> the rules of its parent element.
+		</p>
+		<p class="question">
+			3. What are CSS At-rules? Give an example of your favorite one.
+		</p>
+		<p class="answer">
+			At-rules are rules which start with the "@" symbol.  My personal favorite is @media, which allows styling to be predicated on the medium used to observe a page.
+		</p>
+		<p class="question">
+			4. What is meant by parent and child? Give an example
+		</p>
+		<p class="answer">
+			These reference the hierarchy of elements in an HTML document.  A child tag is entirely enclosed by its parent tag.  In the following snippet, the p-tag is the parent and the span-tag the child:
+		</p>
+		<div>
+			&lt;p&gt;
+			<br />
+			&lt;span&gt;
+			<br />
+			These words are in a child element.
+			<br />
+			&lt;/span&gt;
+			<br />
+			&lt;/p&gt;
+		</div>
+		<p class="question">
+			5. Describe what CSS Vendor Extension Prefixes are, in regards to CSS properties.
+		</p>
+		<p class="answer">
+			Because various browsers can add whatever kind of extension they like to CSS, they are assigned special naming which indicates the vendor.  These are free to be implemented however the vendor chooses.
+		</p>
+		<p class="question">
+			6. What is meant by sibling element?
+		</p>
+		<p class="answer">
+			When two elements are children of the same parent element, they are sibling elements.  They need not be adjacent.
+		</p>
+		<p class="question">
+			7. What does the "Cascade" mean in Cascading Style Sheets?
+		</p>
+		<p class="answer">
+			The cascade in CSS references the way that styles are accumulated from multiple sources all the way down to the element/text level.
+		</p>
+		<p class="question">
+			8. How many types of Style Sheets are there? Which one has the most weight? Give a description of each one you mention.
+		</p>
+		<p class="answer">
+			There are three types of style sheet.  External sheets are linked into documents using the &lt;link&gt; tag.
+			Embedded stylesheets are written directly in documents using the &lt;style&gt; tag.  Finally, inline styles (not technically a stylesheet) are written directly in the tags they modify.
+			Inline styles have the most weight, but are also the hardest to debug.
+		</p>
+		<p class="question">
+			9. What does the !important rule mean. Give a working example of its use.
+		</p>
+		<p class="answer">
+			The <i>!important</i> modifier adds significant weight to whatever rule it is attached to.  For instance, see index_1_9.html
+		</p>
+		<p class="question">
+			10. How do you calculate Specificity. Hint: Use http://reference.sitepoint.com/css/specificity
+		</p>
+		<p class="answer">
+			Specificity is calculated in a hierarchy of weights: <i>!important</i> &gt; <i>inline</i> &gt; <i>id-selectors</i> &gt; <i>class-selectors</i> &gt; <i>element-selectors</i>.  A rule will calculate specificity based on all these factors and the highest specificity (counted from the left of the hierarchy) will win.
+			If two share the same specificity, the latter one wins.
+		</p>
+		<h1>Part 2</h1>
+
+		<p class="question">Write HTML and CSS using an embedded style sheet that configures the background color of #eaeaea and a text color of #000033 of a page.</p>
+		<p class="answer">
+			&lt;style&gt;
+			<br/>
+			body {
+			<br/>
+			background-color: #eaeaea;
+			<br/>
+			text-color: #000033;
+			<br/>
+			}
+			<br/>
+			&lt;/style&gt; </p>
+		<p class="question">Write CSS code for an external style sheet that configures all text to be brown, 1.2em in size, and uses the following fonts (in this order): Arial, Verdana or a sans-serif font.</p>
+				<p class="answer">body {
+									color: brown;
+									font-size: 1.2em;
+									font-family: Arial, Verdana, sans-serif;
+								}</p>
+		<p class="question">Write HTML and CSS using an embedded style sheet that creates a class called "new", that has the rules that make all the text within all paragraphs and div's to be bold and italic.</p>
+		<p class="answer">
+			&lt;style&gt;
+			<br/>
+			p.new, div.new {
+			<br/>
+			font-style: italic;
+			<br/>
+			font-weight: bold;
+			<br/>
+			}
+			<br/>
+			&lt;/style&gt;
+		</p>
+		<p class="question">Write HTML and CSS using an embedded style sheet that configures hyperlinks without underlines; 
+			a background color of white; text color of black; is in Arial, Helvetica, or a sans-serif font; and has a class called "new" that is bold and italic.</p>
+		<p class="answer">
+			&lt;style&gt;
+			<br/>
+			a[href] {
+			<br/>
+			text-decoration: none
+			<br/>
+			}
+			<br/>
+			* {
+			<br/>
+			background-color: white;
+			<br/>
+			color: black;
+			<br/>
+			font-family: Arial, Helvetica, sans-serif;
+			<br/>
+			}
+			<br/>
+			.new {
+			<br/>
+			font-weight: bold;
+			<br/>
+			font-style:italic;
+			<br/>
+			}
+			<br/>
+			&lt;/style&gt;
+		</p>
+		<p class="question">Write CSS using an external style sheet that configures a page background color of #FFF8DC; has a text color of #000099. 
+			It shall use fonts (in this order) of: Times New Roman, Times or a serif font; and has a id called "new" that is bold and italic.</p>
+		<p class="answer">
+			body {
+				background-color: #FF8DC;
+				color: #000099;
+				font-family: "Times New Roman", Times, serif;
+			}
+			<br />
+			#new {
+				font-weight: bold;
+				font-style:italic;
+			}
+		</p>
+		<h1>Part 3</h1>
+		<h2>In this section, you will create 2 external style sheet files with a web page. You will experiment with linking a web page to your external style sheets and note how the display of the page changes.</h2>
+		<p class="question">
+			Create an external style sheet (call it "format1.css") to format as follows: document background color of white, document text color of orange. Use a font family of Arial, Helvetica or sans-serif.
+			Hyperlinks should use a background color of gray (#ccc). Configure any h1 element to use the Times New Roman font with red text color.
+		</p>
+		<p class="question">
+			Create an external style sheet (call it "format2.css") to format as follows: document background color of yellow and document text color of green. Hyperlinks should have a background color of white. 
+			Configure any h1 element to use the Courier font with a white background color and green text color.
+		</p>
+		<p class="question">
+			Create a web page about your favorite movie. It will display the movie name in an h1 element, a description of the movie in a paragraph, and an unordered (bulleted) list of the main actors and actress. 
+			The page should also have a hyperlink to a website about the movie. Place an email link to yourself on the web page for any questions about your web page. This page should be associated with the 
+			"format1.css" file. Save the page as "moviecss1.html". Be sure to test your page in more than one browser. Modify the moviecss1.html page to a link to the "format2.css" external style sheet, 
+			instead of the "format1.css" file. Save the page as "moviecss2.html" and test in a couple of browsers. Notice how different the page looks.
+		</p>
+		<h1>Part 4</h1>
+
+		In this exercise, you will create HTML fragments (or whole pages, if you like) that matches the following rules below. Again, you can create one HTML document per question for each rule below.
+		li + li
+		all i, cite, address and em elements
+		li > cite
+		.darkgreen
+		p.abstract .keyword
+		th span.italic
+		#contentMenu
+		a[title]
+		input[type=radio]:checked
+		#news *
+		<h1>Part 5</h1>
+
+		Create a "Selector Sample" web page that includes code and description of how each selector works. That is, a brief description of the selector and then a small CSS/HTML example of it.
+		ID selector
+		Element selector
+		Class selector
+		Attribute selector
+		Adjacent selector
+		Direct-descendent selector
+		Grouped selectors
+		Descendent selector
+		Universal selector
+		Pseudo classes
+		Pseudo elements
+		Handing in your homework.
+
+		Compress your solution(s) with a .zip extension. The filename format should be [BU_ID].zip.
+	</body>
+</html>
