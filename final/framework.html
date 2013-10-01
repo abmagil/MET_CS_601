@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>Final Project Framework</title>
+		<meta name="description" content="">
+		<meta name="author" content="amagil">
+		<style>
+			h2 {
+				font-size: 1.1em;
+			}
+			h3 {
+				font-size: 1em;
+			}
+			h4 {
+				margin-left: 3ex;
+				font-style: italic;
+			}
+		</style>
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+	</head>
+	<body>
+		<h1> Final Project </h1>
+		<h2>An Interactive Restaurant Simulator</h2>
+		<h3>Main Content Area</h3>
+		<p>
+			The core of the website will be a central area which represents the seating area.  It will have a graphical representation of the tables
+			and the number of people that can be seated.
+		</p>
+		<p>
+			On this screen, the website will simulate a possible home-screen for a host/hostess.  At random intervals, parties of varying size will arrive.  The
+			system will allow the user to assign them to a table by clicking a button and assigning them a table.  After a random(ish) amount of time, they will stand up and leave.  Hopefully they pay first.
+		</p>
+		<p>
+			Tables will be assigned Waiters.  Waiters can be "good" or "bad".  For "bad" waiters, the table will leave quicker, whereas they will stay longer when they have a good waiter.
+		</p>
+		<h3>Waiters</h3>
+		<p>
+			The restaurant will have a list of waiters, not all of whom are working on any given night.  There will be a schedule of waiters which can be customized from the website to set who is working at any
+			given time.  If a waiter is currently waiting on a table and they are removed from the shift, they will clear their table and be removed when that table is finished.  If I'm feeling ambitious, I might add a
+			"kick patrons out" option, where I clear the table and immediately let off the waiter.
+		</p>
+		<h3>Money</h3>
+		<h4>Paying me</h4>
+		<p>
+			When a table stands up and leaves, they leave behind money.  Waiters then collect this money and it is deposited in the restaurant's account.
+		</p>
+		<h4>Paying waiters</h4>
+		<p>
+			Every time a waiter starts a shift, they get paid, because I'm progressive like that.  This money comes from the restaurant's coffers directly.  There are no taxes.  The restaurant is in Somalia.
+		</p>
+		<h3>Nitty Gritty</h3>
+		<p>In order to implement this, I will be using Ruby on Rails.  This will bring with it the advantage of hosting on Heroku for free.  RoR is a ruby-based MVC framework which will allow me to
+			work with objects both in the front and the back-end.  There is a strong RoR developer community and there are quite a few open-source components that exist.  Rails is also a common target
+			when using the Bootstrap CSS framework, which helps apply a standard look-and-feel across various components.  These also have the benefit of being the tools used at my workplace, so if I want to 
+			move into development rather than QA, they will be important tools to have.</p>
+		<div>
+			<footer>
+				<p>
+					&copy; Copyright  by amagil
+				</p>
+			</footer>
+		</div>
+	</body>
+</html>

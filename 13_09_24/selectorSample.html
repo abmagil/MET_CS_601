@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>HW3</title>
+		<meta charset="UTF-8" />
+		<style>li p {margin: 1px;} li {margin-bottom: 10px;border-style:double}</style>
+	</head>
+	<body>
+		<ul><h1>CSS Selectors</h1>
+			<li>
+				<div>ID selector</div>
+				<p>Selects the element which has the id specified.</p>
+				<style>#selector { font-size: 1.2em; }</style>
+				<div>&lt;style&gt;#selector { font-size: 1.2em; }&lt;/style&gt;</div>
+				<div>
+					<div id="selector">
+						&lt;div id=&quot;selector&quot;&gt;&lt;/div&gt;
+					</div>
+				</div>
+			</li>
+			<li>
+				<div>Element selector</div>
+				<p>Selects all elements of the type specified.</p>
+				<style>cite { color: red; }</style>
+				<div>&lt;style&gt;cite { color: red; }&lt;/style&gt;</div>
+				<div><cite>&lt;cite&gt;Some red text&lt;/cite&gt;</cite></div>
+			</li>
+			<li>
+				<div>Class selector</div>
+				<p>Selects all elements which include the specified class in their class attribute.</p>
+				<style> .italic { font-style: italic; } </style>
+				<div>&lt;style&gt; .italic { font-style: italic; } &lt;/style&gt;</div>
+				<div class="italic">&lt;div class=&quot;italic&quot;&gt;Italicized&lt;/div&gt;</div>
+			</li>
+			<li>
+				<div>Attribute selector</div>
+				<p>Selects all elements which have the specified attribute, regardless of its value.</p>
+				<style>a[href] { color:green;}</style>
+				<div>&lt;style&gt;a[href] { color:green;}&lt;/style&gt;</div>
+				<div><a href="mailto:abmagil@bu.edu">Contact me.</a></div>
+			</li>
+			<li>
+				<div>Adjacent selector</div>
+				<p>Selects a specified element which is the first sibling of another specified element.</p>
+				<style>span + span {font-size: 1.2em;}</style>
+				<div>&lt;style&gt;span + span {font-size: 1.2em;}&lt;/style&gt;</div>
+				<div><p><span>The first element. </span><span>The second element will get selected.</span></p></div>
+			</li>
+			<li>
+				<div>Direct-descendent selector</div>
+				<p>Selects a specified element only if it is first-level child of another specified element</p>
+				<style>p > em {font-variant: small-caps;}</style>
+				<div>&lt;style&gt;p &gt; em {font-variant: small-caps;}&lt;/style&gt;</div>
+				<div><p>This is normal text <em>but now we're talking fancy!</em></p></div>
+			</li>
+			<li>
+				<div>Grouped selectors</div>
+				<p>When selectors share the same styling, they can be grouped with a comma (,) to save space and increase clarity.</p>
+				<style> #unique > h3,#unique > p { color:#808080; background-color: #0000FF}</style>
+				<div>&lt;style&gt; h3, p { color:#808080; background-color: #0000FF}&lt;/style&gt;</div>
+				<div id="unique"><h3>This heading is self contained and styled.</h3><span>Boring normal text here</span><br /><p>Fancy paragraph text is styled the same.</p></div>
+			</li>
+			<li>
+				<div>Descendent selector</div>
+				<p>When two selectors are separated only by a space ( ), then the second selector is matched only when it is an nth-child (including 1st) of the first selector</p>
+				<style>#match > span {border:#008000;border-style:dashed;}</style>
+				<div>&lt;style&gt;#match &gt; span {border:#008000;border-style:dashed;}&lt;/style&gt;</div>
+				<div id="match">The start of the div if unstyled <span>but the part inside the span matches the selector.</span></div>
+			</li>
+			<li>
+				<div>Universal selector</div>
+				<p>The asterisk (*) character matches all elements.  It can be placed in a context, such as within another selector or grouped.</p>
+				<style>#univ > * {color:#FFFF00;background-color: #FF0000;}</style>
+				<div>&lt;style&gt;#univ &gt; * {color:#FFFF00;background-color: #FF0000;}&lt;/style&gt;</div>
+				<dialog id="univ"><h1>A heading</h1><p>A paragraph</p><footer>Even the footer tag, when badly misused!</footer></dialog>
+			</li>
+			<li>
+				<div>Pseudo classes</div>
+				<p>Some elements have additional characteristics beyond simply their existence.  Pseudo classes, demarcated as <i>Selector:pseudo-class</i>, allows additional control.</p>
+				<style>#link > a:hover {font-size:1.5em;}</style>
+				<div>&lt;style&gt;#link &gt; a:hover {font-size:1.5em;}&lt;/style&gt;</div>
+				<div id="link" href="#"><a>Hover over me and I expand!</a></div>
+			</li>
+			<li>
+				<div>Pseudo elements</div>
+				<p>A set of pseudo-elements are not true elements but act based on properties of the element as displayed in the browser.  Common examples are the <i>:first-line</i> or <i>:first-letter</i> pseudo-elements.</p>
+				<style>p.pseudo:first-letter {font-family:"Century Gothic";font-size:2em;}</style>
+				<div>&lt;style&gt;p.pseudo:first-letter {font-family:&quot;Century Gothic&quot;;font-size:2em;}&lt;/style&gt;</div>
+				<div><p class="pseudo">Some fancy text.</p></div>
+			</li>
+		</ul>
+	</body>
+</html>
