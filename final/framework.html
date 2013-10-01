@@ -32,13 +32,31 @@
 		<h1> Final Project </h1>
 		<h2>An Interactive Restaurant Simulator</h2>
 		<h3>Main Content Area</h3>
+		<p>The layout of the site is in three major parts:</p>
+		<ol>
+			<li>Seating Area Map</li>
+			<li>Table-Waiter Map</li>
+			<li>Notification Center</li>
+		</ol>
+		<p>and the back-end will involve a few models:</p>
+		<ul>
+			<li>Table</li>
+			<li>Waiter</li>
+		</ul>
+		<h3>1. Seating Area Map</h3>
 		<p>
-			The core of the website will be a central area which represents the seating area.  It will have a graphical representation of the tables
-			and the number of people that can be seated.
+			The core of the website will be a central area which represents the seating area.  It will have a graphical representation of the tables.
+			The tables will be numbered and color-coded to indicate whether they are occupied or not.  If they are occupied, a progress bar will indicate
+			how long until they stand up.
 		</p>
+		<h3>2. Table-Waiter Map</h3>
+			The website will also have a data table on the left with one row per (seating) table.  This shows which waiters are assigned to which seating table.  There
 		<p>
 			On this screen, the website will simulate a possible home-screen for a host/hostess.  At random intervals, parties of varying size will arrive.  The
-			system will allow the user to assign them to a table by clicking a button and assigning them a table.  After a random(ish) amount of time, they will stand up and leave.  Hopefully they pay first.
+			system will announce their arrival and prompt the user to assign them to a table by clicking a button and assigning them a table.  The user assigns them by
+			clicking on an empty table.  If the table is not empty, the system will not let the user assign the party to this table.
+			After a random(ish) amount of time, they will stand up and leave.  When they do, the system announces this and the user is prompted to collect their money.
+			This will clear the table and set the UI so that the table on the main area and the row in the waiter-map mark the table as cleared.
 		</p>
 		<p>
 			Tables will be assigned Waiters.  Waiters can be "good" or "bad".  For "bad" waiters, the table will leave quicker, whereas they will stay longer when they have a good waiter.
