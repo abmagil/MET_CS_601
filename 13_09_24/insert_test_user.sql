@@ -1,0 +1,1 @@
+insert into users(email, password) values (aes_encrypt('asheehan@bu.edu', 'key'), aes_encrypt('password', 'key'));
