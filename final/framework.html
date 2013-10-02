@@ -58,42 +58,51 @@
 			</li>
 		</ul>
 		<div>
-			<h2>Layout</h2><h3>1. Seating Area Map</h3>
+			<h2>Layout</h2>
+			<h3>1. Seating Area Map</h3>
 			<p>
 				The core of the website will be a central area which represents the seating area.  It will have a graphical representation of the tables.
 				The tables will be numbered and color-coded to indicate whether they are occupied or not.  If they are occupied, a progress bar will indicate
 				how long until they stand up.
 			</p>
-			<h3>2. Table-Waiter Map</h3>
-			The website will also have a data table on the left with one row per (seating) table.  This shows which waiters are assigned to which seating table.  The
-			rows will be color-coded to indicate which tables are occupied.
-			<p>
-				On this screen, the website will simulate a possible home-screen for a host/hostess.  At random intervals, parties of varying size will arrive.  The
-				system will announce their arrival and prompt the user to assign them to a table by clicking a button and assigning them a table.  The user assigns them by
-				clicking on an empty table.  If the table is not empty, the system will not let the user assign the party to this table.  Similarly, if the table is not being
-				waited on, the system will not allow the user to assign a party to it.
-				After a random(ish) amount of time, they will stand up and leave.  When they do, the system announces this and the user is prompted to collect their money.
-				This will clear the table and set the UI so that the table on the main area and the row in the waiter-map mark the table as cleared.
-			</p>
 			<p>
 				Tables will be assigned Waiters.  Waiters can be "good" or "bad".  For "bad" waiters, the table will leave quicker, whereas they will stay longer when they have a good waiter.
 			</p>
+			<h3>2. Table-Waiter Map</h3>
+			The website will also have a data table on the left with one row per (seating) table.  This shows which waiters are assigned to which seating table.  The
+			rows will be color-coded to indicate which tables are occupied.  If the user hovers over a row, the other rows which share a waiter will be highlighted.
+			The tables in the Seating Area Map will also highlight.
+			<h3>3. Notification Area</h3>
+			<p>
+				At the bottom of the screen, the website will simulate a possible home-screen for a host/hostess.  At random intervals, parties of varying size will arrive.  The
+				system will announce their arrival and prompt the user to assign them to a table by clicking a button and then clicking the target table.
+				If the table is not empty, the system will not let the user assign the party to this table.  Similarly, if the table is not being
+				waited on, the system will not allow the user to assign a party to it.  When the table's progress meter is complete, the party will stand up and leave.
+				When they do, the system announces this in the Notification Area and the user is prompted to collect their money.
+				This will clear the table and set the UI so that the table on the main area and the row in the waiter-map mark the table as cleared.
+			</p>
+			<p>
+				There will also be sections for all the waiters not on-duty presently (on-duty waiters are shown in the Table-Waiter Map) and for a list of statistics
+				for the restaurant as a whole.
+			</p>
 		</div>
-		<h3>Waiters</h3>
-		<p>
-			The restaurant will have a list of waiters, not all of whom are working on any given night.  There will be a schedule of waiters which can be customized from the website to set who is working at any
-			given time.  If a waiter is currently waiting on a table and they are removed from the shift, they will clear their table and be removed when that table is finished.  If I'm feeling ambitious, I might add a
-			"kick patrons out" option, where I clear the table and immediately let off the waiter.
-		</p>
-		<h3>Money</h3>
-		<h4>Paying me</h4>
-		<p>
-			When a table stands up and leaves, they leave behind money.  Waiters then collect this money and it is deposited in the restaurant's account.
-		</p>
-		<h4>Paying waiters</h4>
-		<p>
-			Every time a waiter starts a shift, they get paid, because I'm progressive like that.  This money comes from the restaurant's coffers directly.  There are no taxes.  The restaurant is in Somalia.
-		</p>
+		<div>
+			<h3>Table</h3>
+			<p>
+				The system will model tables very simply.  They will have an attribute noting whether they are occupied or not and a capacity which indicates how many people can be seated at the table.
+			</p>
+			<h3>Waiters</h3>
+			<p>
+				Behind the scenes, the system models a Waiter as a very simple object.  Waiters will have a boolean rating- Good/Bad.  This will dictate how long their tables stay and how well they get tipped.
+				There will be a list of waiters for the whole restaurant, who will be displayed in the Waiter List in the Notification Area.
+			</p>
+			<p>
+				Waiters will be paid a set amount directly from the restaurant's bank account for each table they wait on and clear.  They will be paid upon clearing the table.
+			</p>
+			<p>
+				As a bonus, I might give each waiter an account balance so I could gather statistics on how much work they did.
+			</p>
+		</div>
 		<h3>Nitty Gritty</h3>
 		<p>
 			In order to implement this, I will be using Ruby on Rails.  This will bring with it the advantage of hosting on Heroku for free.  RoR is a ruby-based MVC framework which will allow me to

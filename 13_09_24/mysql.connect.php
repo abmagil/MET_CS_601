@@ -1,7 +1,7 @@
 <?php
   $host = "127.0.0.1";
-  $password = "cs601";
-  $user = "cs601";
+  $password = "";
+  $user = "root";
   $database = "bank";
   $connection = null;
 
