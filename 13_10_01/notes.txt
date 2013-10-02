@@ -1,0 +1,2 @@
+Note: Never use mysqli in object-oriented PHP.  PDO is the new hotness.
+

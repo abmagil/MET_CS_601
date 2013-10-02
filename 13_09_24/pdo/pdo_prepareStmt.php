@@ -7,16 +7,16 @@
    <?php
 
 $host = "127.0.0.1";
-$dbname = "metcs";
+$dbname = "bank";
 $user = "root";
-$pass = "joe81";
+$pass = "";
 
 try {      
   $db = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);   
 
   $statement = $db->prepare("insert into users(email, password) values (aes_encrypt(?, 'key'), aes_encrypt(?, 'key'))");
 
-  $email = "test2@test.edu";
+  $email = "test3@test.edu";
   $pswd = "test";
 
   $statement->bindParam(1, $email);
