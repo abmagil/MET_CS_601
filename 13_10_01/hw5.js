@@ -1,11 +1,17 @@
 var operand1 = "";
-var operand2 = "";
-var total = 0;
+var total = "";
 var state;
 
 
 $("#reset").click(function() {
 	reset();
+});
+
+$("td").mousedown( function() {
+	this.style.background = 'grey';
+});
+$("td").mouseup( function() {
+	this.style.background = 'white';
 });
 
 $("td.number")	//Set behavior for all TDs
@@ -21,15 +27,14 @@ $("td.operator")	//Set behavior for all TDs
 $("#equals")
 	.click(function() {
 		calculate();
-	});
+});
 
 /**
  *Reset state variables and clear display 
  */
 function reset() {
 	operand1 = "";
-	operand2 = "";
-	total = 0;
+	total = "";
 	state = null;
 	$("#result").html("&nbsp;");
 }
@@ -40,10 +45,9 @@ function updateOperand(button) {
 		$("#result").text(operand1);
 	}
 	else {
-		operand2 += button.innerHTML;
-		$("#result").text(operand2);
+		total += button.innerHTML;
+		$("#result").text(total);
 	}
-	
 }
 
 function setState(button) {
@@ -51,8 +55,19 @@ function setState(button) {
 }
 
 function calculate() {
-	/**
-	 *figure out total operator operand compbination and display it to the screen.
-	 * Set as new total. 
-	 */
+	if (state == "+") {
+		total = parseInt(total) + parseInt(operand1);	//stupid overloading...
+	}
+	if (state == "-") {
+		total -= operand1;	
+	}		
+	if (state == "*") {
+		total *= operand1;
+	}
+	if (state == "/") {
+		total /= operand1;
+	}
+	state;
+	operand1 = "";
+	$("#result").text(total);
 }
