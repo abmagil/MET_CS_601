@@ -1,0 +1,23 @@
+			body {
+				font-size: 1.5em;
+			}
+			td {
+				border: solid;
+				text-align: center;
+				width: 20px;
+			}
+			#calculator {
+				border: 10px;
+				border-style: solid;
+				width: 150px;
+			}
+			#result {
+				background-color: #808080;
+				width: 100%;
+			}
+			#reset {
+				background-color: #CCFFFF;
+			}
+			#equals {
+				background-color: #FFF8DC;
+			}
