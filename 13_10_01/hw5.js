@@ -7,21 +7,23 @@ $("#reset").click(function() {
 	reset();
 });
 
-$("td").mousedown( function() {
-	this.style.background = 'grey';
-});
-$("td").mouseup( function() {
-	this.style.background = 'white';
-});
 
 $("td.number")	//Set behavior for all TDs
 	.click( function() {
 		updateOperand(this);
+})	.mousedown( function() {
+	this.style.background = 'grey';
+}).mouseup( function() {
+	this.style.background = 'white';
 });
 
 $("td.operator")	//Set behavior for all TDs
 	.click( function() {
 		setState(this);
+}).mousedown( function() {
+	this.style.background = 'grey';
+}).mouseup( function() {
+	this.style.background = 'white';
 });
 
 $("#equals")
@@ -69,5 +71,5 @@ function calculate() {
 	}
 	state;
 	operand1 = "";
-	$("#result").text(total);
+	$("#result").html("&nbsp;" + total);
 }

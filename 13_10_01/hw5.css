@@ -13,7 +13,7 @@ td {
 }
 #result {
 	background-color: #808080;
-	width: 100%;
+	overflow: hidden;
 }
 #reset {
 	background-color: #CCFFFF;
