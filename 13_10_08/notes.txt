@@ -1,0 +1,23 @@
+PHP Superglobals
+$GLOBALS
+$_SERVER
+$_GET
+	Holds only the variables from a GET request
+$_POST
+	Holds only the variables from a POST request
+$_COOKIE
+	Holds the variables which are in the client-side cookie.
+	From the PHP.net comments: The value of $_COOKIE is determined by the content of cookies received in the user agent's request.  "If you set a cookie (ie send it to the browser), it won't be sent back until the next request and so the data won't be present in $_COOKIE."
+		So...I can use setcookie() [see below]
+$_FILES
+$_ENV
+$_REQUEST
+	Super set of $_GET, $_POST, and $_COOKIE.  Not really a great choice, since it obscures the workings/architecture of the website.
+$_SESSION
+
+htmlentities()
+	PHP function to escape entirely to HTML equivalents.  For instance, angle brackets
+isset($var)
+	PHP function to check a function to see if it is null (true if exists and not null)
+setcookie()
+	sets a value in the client side cookie.  Must be before any HTML response.
