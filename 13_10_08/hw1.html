@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+
+		<!-- Always force latest IE rendering engine (even in intranet) & Chrome Frame
+		Remove this if you use the .htaccess -->
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+		<title>hw6_1</title>
+		<meta name="description" content="">
+		<meta name="author" content="abmagil">
+
+		<meta name="viewport" content="width=device-width; initial-scale=1.0">
+		
+		<!-- Replace favicon.ico & apple-touch-icon.png in the root of your domain and delete these references -->
+		<link rel="shortcut icon" href="/favicon.ico">
+		<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+		<script type="text/javascript" src="hw6_1.js"> </script>
+		<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	</head>
+	<body>
+		<h1>Welcome to the Car Detail Service.</h1>
+		<h2>Once you choose from the list of manufacturers below, you will see a list of models.</h2>
+		<h2>Once you have made the final selection, you will see all the information about your selected make and model.</h2>
+		<select id="make" onchange="make_chosen()">
+			<option>Ford</option>
+			<option>Toyota</option>
+			<option>Mazda</option>
+			<option>Hoooooooonda</option>
+		</select>
+		<div class="after_make">
+			<h2>You have selected to view all the models we know about regarding <span id="chosen_make"> </span></h2>
+			<select id="model" onchange="model_chosen()"> </select>
+			<h2>Here are the details</h2>
+			<p id="chosen_car"> </p>
+			<ul>
+				Cylinders
+			</ul>
+			<ul>
+				mpg
+			</ul>
+			<ul>
+				Passengers
+			</ul>
+			<ul>
+				Airbags
+			</ul>
+		</div>
+		<button id="reset">
+			Reset
+		</button>
+	</body>
+</html>

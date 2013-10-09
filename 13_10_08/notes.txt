@@ -1,6 +1,8 @@
 PHP Superglobals
 $GLOBALS
+	SuperGlobal.  Accessible from ALL scopes. 
 $_SERVER
+	Holds the details of the webserver.  Many prepopulated fields.  Should check the documentation for them.
 $_GET
 	Holds only the variables from a GET request
 $_POST
@@ -21,3 +23,13 @@ isset($var)
 	PHP function to check a function to see if it is null (true if exists and not null)
 setcookie()
 	sets a value in the client side cookie.  Must be before any HTML response.
+	
+Javascript
+function
+	reserved keyword, translates to a function-type object.
+	functions can be created in different ways:
+		var x = function(a,b) {return a + b;} 			//Creates an object and assigns it to the variable x.  Creates object at run-time.  This means if we reference before creation in the script, we will throw an error.
+		function x(a,b) {return a + b;}					//Creates an object and assigns it to the variable x.  Creates object at parse-time.
+		var x = new Function("a","b", "return a+b;");	//This looks terrible.  Why would I do this?  Note- this definitely creates an object of type Function
+		I _think_ the latter two options are functionally the same, creating a named function object, whereas the first creates an unnamed function.  This means we can only access "this.name" for the 2nd and 3rd definitions 
+	fun note: can define function with empty parameter list, then pass it arguments, which get stored in "this.arguments" for the function
