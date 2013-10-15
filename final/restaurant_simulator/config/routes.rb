@@ -1,5 +1,11 @@
 RestaurantSimulator::Application.routes.draw do
-  root :to 'restaurant#show'
+  root to: 'restaurant#show'
+  
+  match '/help',    to: 'restaurant#help',    via: 'get'
+  
+  resources :tables
+  resources :waiters
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
