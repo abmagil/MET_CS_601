@@ -1,2 +1,13 @@
-%h1 Help
-%p This is a help page.
+.container
+	.jumbotron	
+		%h1 Restaurant Simulator
+		%p.lead Welcome to Aaron's Restaurant Simulator.  Here, we'll model the nightly business of a small restaurant as people come and go.
+	.row
+		.col-lg-4
+			%h2 The Restaurant
+			%p The restaurant consists of ten tables of varying size.  Each table is labeled with an ID number and color-coded to indicate whether anybody is seated at the table.  If somebody is seated, there is a progress bar indicating how long until they stand up, to help in planning.
+			%p The tables are also listed in the left panel, similarly color-coded.  This panel is to map waiters to tables, so the manager will know who is working where.
+		.col-lg-r
+			%h2 The Waitstaff
+			%p At any time, some number of waiters will be working the floor.  Waiters are assigned to tables.  A waiter can be a good or a bad waiter and if they are a good waiter, their tables will stay longer and tip higher.
+			%p Any waiters who aren't working will be displayed in a list at the bottom of the screen.  They can be assigned from here directly to tables in the left panel.
