@@ -1,15 +1,15 @@
-.row-fluid
-  .span4#tablewaitermap
+.row-
+  .col-md-4#tablewaitermap
     = render 'waiters/onduty'
-  .span8#main
+  .col-md-8#main
     %h2.text-center TABLES
     %canvas
 .row-fluid
-  .span5#notification
+  .col-md-5#notification
     %h2 Notification Area
     %p notifications
-  .span2#waiters
+  .col-md-2#waiters
     %h2 Waiters
     %p list of waiters
-  .span5#status
+  .col-md-#status
     = render 'status'

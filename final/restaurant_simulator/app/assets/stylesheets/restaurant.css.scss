@@ -1,30 +1,35 @@
 // Place all the styles related to the restaurant controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-canvas {
-  width: 100%;
-  height: 480px;
-}
+@import "bootstrap";
 
 #tablewaitermap {
+  background: red;
   height: 100%;
-  margin-left: 0 !important;
-  width: 33% !important;
+  //margin-left: 0 !important;
+  //width: 20% !important;
 }
 
 #main {
-  background: forestgreen;
+  background: darkgreen;
+  color: white;
   height: 100%;
-  margin-left: 0 !important;
-  width: 67% !important;
+  //margin-left: 0 !important;
+  //width: 80% !important;
+  canvas {
+    width: 100%;
+    height: 480px;
+  }
 }
 
 #notification, #status {
-  margin-left: 0 !important;
-  width: 41.6666% !important; // This is for 4 elements ONLY in the row
+  //margin-left: 0 !important;
+  //width: 41.6666% !important; // This is for 4 elements ONLY in the row
 }
 
 #waiters {
-  margin-left: 0 !important;
-  width: 16.666% !important; // This is for 4 elements ONLY in the row
+  //margin-left: 0 !important;
+  //width: 16.666% !important; // This is for 4 elements ONLY in the row
 }
+
+tr:nth-child(even) {background: $gray-lighter}

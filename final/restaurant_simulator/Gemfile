@@ -22,7 +22,9 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'bootstrap-sass'
+
+# Experimental Bootstrap 3.0 beta -- use at your own risk.
+gem 'bootstrap-sass', github: 'thomas-mcdonald/bootstrap-sass'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
