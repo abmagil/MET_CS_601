@@ -2,14 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap/variables";
+$blueprint: rgb(102,102,204);
 
 #tablewaitermap {
   height: 100%;
 }
 
 #main {
-  background: forestgreen;
-  color: white;
+  background: $blueprint;
+  color: $gray-lighter;
   height: 100%;
   canvas {
     width: 100%;
@@ -21,8 +22,8 @@
 }
 
 #waiters {
-  //margin-left: 0 !important;
-  //width: 16.666% !important; // This is for 4 elements ONLY in the row
 }
 
-tr:nth-child(even) {background: $gray-lighter}
+tr:nth-child(even) {
+  background: $gray-lighter
+}
