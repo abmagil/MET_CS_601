@@ -9,12 +9,22 @@ r = Restaurant.create(cash_on_hand: 180000, customers_served: 0)
 
 range = 1..4
 range.each do |t|  #First four tables seat 2 people each
-  Table.create(capacity: 2, name: t)
+  r.tables.create(capacity: 2, name: t)
 end
 
 range = 5..9
 range.each do |t| #Next five tables hold 4 people each
-  Table.create(capacity: 4, name: t)
+  r.tables.create(capacity: 4, name: t)
 end
 
-Table.create(capacity: 4, name: "10")
+r.tables.create(capacity: 4, name: "10")
+
+Waiter.create(name: "Aaron", good: false, onduty: false)
+Waiter.create(name: "Becky", good: true, onduty: false)
+Waiter.create(name: "Charles", good: false, onduty: false)
+Waiter.create(name: "Diana", good: true, onduty: false)
+Waiter.create(name: "Elaine", good: true, onduty: false)
+Waiter.create(name: "Frances", good: true, onduty: false)
+Waiter.create(name: "Geno", good: false, onduty: false)
+Waiter.create(name: "Haleigh", good: true, onduty: false)
+Waiter.create(name: "Isaac", good: false, onduty: false)
