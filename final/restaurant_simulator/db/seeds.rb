@@ -5,4 +5,9 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-Restaurant.create(cash_on_hand: 180000, customers_served: 0)
+r = Restaurant.create(cash_on_hand: 180000, customers_served: 0)
+
+range = 1..4
+range.each do |t|  #First four tables seat 2 people each
+  Table.create(restaurant_id: r, capacity: 2)
+end
