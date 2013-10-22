@@ -9,5 +9,12 @@ r = Restaurant.create(cash_on_hand: 180000, customers_served: 0)
 
 range = 1..4
 range.each do |t|  #First four tables seat 2 people each
-  Table.create(restaurant_id: r, capacity: 2)
+  Table.create(capacity: 2, name: t)
 end
+
+range = 5..9
+range.each do |t| #Next five tables hold 4 people each
+  Table.create(capacity: 4, name: t)
+end
+
+Table.create(capacity: 4, name: "10")

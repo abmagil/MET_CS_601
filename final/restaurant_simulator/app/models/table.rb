@@ -1,3 +1,5 @@
 class Table < ActiveRecord::Base
-  # attr_accessible :title, :body
+  attr_accessible :capacity, :name
+  has_one :waiter
+  belongs_to :restaurant
 end
