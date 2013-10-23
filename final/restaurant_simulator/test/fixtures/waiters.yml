@@ -1,3 +1,15 @@
+# == Schema Information
+#
+# Table name: waiters
+#
+#  id         :integer          not null, primary key
+#  onduty     :boolean
+#  good       :boolean
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#  name       :string(255)
+#
+
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 # This model initially had no columns defined.  If you add columns to the
