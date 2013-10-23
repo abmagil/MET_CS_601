@@ -11,5 +11,10 @@
  *= require_self
  *= require_tree .
  *= require restaurant
+ *= require waiter
  */
 @import "bootstrap";
+
+.table {
+  margin: 15px !important;
+}

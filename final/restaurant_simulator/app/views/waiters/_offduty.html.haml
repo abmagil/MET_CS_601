@@ -1,2 +1,4 @@
-- if waiter.onduty?
- %li.list-group-item waiter.name
+%h2 Waiters
+%ul.list-group#offduty
+- Waiter.all.each do |w|
+ %li.list-group-item= w.name
