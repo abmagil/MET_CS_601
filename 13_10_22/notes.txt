@@ -1,0 +1,6 @@
+JS Arrays
+	Fun behavior: when I create an Array object (dunno about implicit arrays), I can add by multiple means
+		1) Push() (remove with pop())
+		2) Straight assignment (a = new Array(); a = "first"; a = "second"; ==> An array with two strings in it)
+JS Events
+	Only one event for the Document object: onreadystatechange(readystatechange)
