@@ -13,4 +13,8 @@
 class Waiter < ActiveRecord::Base
   attr_accessible :name, :onduty, :good
   has_many :table, inverse_of: :waiter
+  
+  def onduty?
+    return :onduty
+  end
 end

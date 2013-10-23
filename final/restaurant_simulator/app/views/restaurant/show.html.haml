@@ -10,6 +10,8 @@
     %p notifications
   .col-md-2#waiters
     %h2 Waiters
-    %p list of waiters
+    %ul.list-group
+    - @waiter.each do |waiter|
+      = render 'waiters/offduty'
   .col-md-5#status
     = render 'status'
