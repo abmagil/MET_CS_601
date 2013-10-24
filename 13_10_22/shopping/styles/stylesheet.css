@@ -1,0 +1,127 @@
+@font-face {
+    font-family: 'a_song_for_jenniferregular';
+    src: url('a_song_for_jennifer-webfont.eot');
+    src: url('a_song_for_jennifer-webfont.eot?#iefix') format('embedded-opentype'),
+         url('a_song_for_jennifer-webfont.woff') format('woff'),
+         url('a_song_for_jennifer-webfont.ttf') format('truetype'),
+         url('a_song_for_jennifer-webfont.svg#a_song_for_jenniferregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+body {
+    font-family: 'a_song_for_jenniferregular';
+    margin: 0;
+    padding: 0;
+}
+
+#name {
+    font-weight: normal;
+	font-style: normal;
+	font-size: 2in;
+	margin: auto;
+	text-align: center;
+	color: green;
+}
+
+#gallery {
+    width: 500px;
+    margin: auto;
+    text-align: center;
+}
+#gallery div img {
+   width: 200px;
+   height: 200px;
+   padding-right: 10px;
+}
+#gallery div {
+   float: right;
+}
+#details {
+   display: none;
+   clear: right;
+   margin: auto;
+   text-align: center;
+   width: 600px;
+}
+#details  header {
+   font-size: 100px;
+}
+.price {
+   font-size: 100px;
+}
+img[alt=Home] {
+     width: 50px;
+     height: 50px;
+}
+article + div > cite:hover {
+	 border: 1px dotted orange;
+}
+ article + div {
+	   margin: auto;
+	   text-align: center;
+}
+ article + div > cite {
+	   display: block;
+	   color: orange;
+	   font-size: 30px;
+}
+     #container {
+	     width: 900px;
+	     margin: auto;     
+	 }
+	 #checkout_container {
+		 width: 600px;
+		 margin: auto;
+	}
+     div[id="container"] > h1 {
+	    font-size: 70px;
+	    font-weight: normal;
+		font-style: normal;
+		margin: 0;
+     }
+	div[id="checkout_container"] > h1 {
+	    font-size: 70px;
+	    font-weight: normal;
+		font-style: normal;
+		margin: 0;
+     }
+     div[name="Flower Border"] {
+	    margin: auto;
+	    text-align: center;
+	    height: 100px;
+		background-image:url('images/flower_line.gif');
+		background-repeat:repeat-x;
+}
+     img[alt=Cart] {
+	    height: 128px;
+	    width: 128px;
+	    padding-right: 50px;
+     }
+     img[alt="Continue Checkout"] {
+	    height: 24px;
+	    width: 24px; 
+	    padding-right: 10px;
+     }
+     table[id=items] + div[alt="Continue Checkout Bar"] {
+	    margin-top: 10px;
+	    text-align: right;
+     }
+     img[alt=Remove] {
+	    height: 32px;
+	    width: 32px;
+     }
+     table {
+	    width: 100%;
+     }
+     table td, th {
+	    border: 1px dotted black;
+	    text-align: center;
+     }
+     img[name^=item] {
+	     width: 48px;
+	     height: 48px;
+     }
+     input[id*=qty] {
+	     border: 1px dotted #333;
+     }
