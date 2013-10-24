@@ -1,9 +1,5 @@
 @import "bootstrap/variables";
 
 #offduty {
-  height: 3 * ($border-radius-base 
-              + $font-size-large 
-              + $padding-base-vertical
-              );
-  overflow-y: scroll;
+  width: 100%;
 }

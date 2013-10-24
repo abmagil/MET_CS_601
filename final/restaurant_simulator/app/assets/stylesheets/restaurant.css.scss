@@ -25,6 +25,7 @@ $blueprint: rgb(102,102,204);
 
 #bottom {
   height: 30%;
+  overflow: auto;
 }
 
 tr:nth-child(even) {
