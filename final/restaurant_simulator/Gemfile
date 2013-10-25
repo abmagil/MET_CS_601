@@ -9,6 +9,9 @@ gem 'sqlite3'
 
 gem 'haml', '~>4.0.3'
 
+gem 'will_paginate', '3.0.4' #todo remove
+gem 'bootstrap-will_paginate', '0.0.9' #todo remove
+
 group :development do
   gem 'annotate', '2.5.0'
 end
