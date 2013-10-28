@@ -7,26 +7,7 @@
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-  <script>
-    $(function() {
-		
-		$("input[id*=slider]").on("change", function(event) {
-			var itemId = this.id.split("_")[1];
-			$("#qty_" + itemId).val(this.value);
-			
-		});
-		
-		$("button").button();
-		
-		$("#checkoutBtn").on("click", function(){
-			location="checkout.php";
-		})
-    });
-  </script>
-  
-  <style>
-
-  </style>
+  <script src="cart.js" type="text/javascript"></script>
  </head>
  <body>
    <div id="name">CS Flowers</div>
@@ -50,7 +31,7 @@
 	 </thead>
 	 <tbody>
 		<tr>
-			<td><img src="images/remove.png" alt="Remove"></td>
+			<td><img id="remove" src="images/remove.png" alt="Remove"></td>
 			<td><img name="item_23" src="images/beautiful.jpg" alt="beautiful">
 				&quot;Wild Hearts&quot;</td>
 			<td>$120.00</td>
@@ -62,7 +43,11 @@
 	  </tbody>
     </table>
 
-    <div alt="Continue Checkout Bar">
+	<div alt="Button Bar">
+      <button type="button" id="backBtn">
+	   <img src="images/back.jpg" alt="Continue Shopping">
+	    Return to shopping
+      </button>
       <button type="button" id="checkoutBtn">
 	   <img src="images/cart.png" alt="Continue Checkout">
 	    Continue to checkout
