@@ -1,4 +1,8 @@
- <!doctype html>
+<?php
+	session_start();
+?>
+
+<!doctype html>
 <html>
  <head>
   <title>CS Flowers</title>
@@ -60,8 +64,26 @@ fieldset {
      <div>
 	   <input type="text" maxlength="25" size="25" name="city" id="city" alt="City" placeholder="City">
 	 </div>
-
+	</fieldset>
+	<div>
+		<h5>Grand Total</h5>
+		<table>					
+			<thead>
+				<tr>
+					<th>Item</th>
+					<th>Quantity</th>
+					<th>Price</th>
+					<th>Tax</th>
+					<th>Total</th>
+				</tr>
+			</thead>
+		</table>
+	</div>
 	
+	<div id="couponField">
+		<input type="text" maxlength="25" size="25" name="couponCode" id="couponCode" alt="Coupon Code" placeholder="Coupon Code">
+		<button type="button" id="couponBtn">Enter Coupon</button>
+	</div>
 
 
     <div alt="PayDiv">

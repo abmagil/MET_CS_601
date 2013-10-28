@@ -1,4 +1,9 @@
- <!doctype html>
+<?php
+	session_start();
+	$_SESSION["name"] = "aaron";
+?>
+
+<!doctype html>
 <html>
  <head>
   <title>CS Flowers</title>
