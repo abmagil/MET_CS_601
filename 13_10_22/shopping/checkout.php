@@ -7,22 +7,7 @@
   <link rel="stylesheet" type="text/css" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
   <script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
-  <script>
-    $(function() {
-		
-		$("input[id*=slider]").on("change", function(event) {
-			var itemId = this.id.split("_")[1];
-			$("#qty_" + itemId).val(this.value);
-			
-		});
-		
-		$("button").button();
-		
-		$("#checkoutBtn").on("click", function(){
-			location="checkout.php";
-		})
-    });
-  </script>
+  <script src="checkout.js" type="text/javascript"></script>
   
   <style>
   img[alt="Pay Now"] {
