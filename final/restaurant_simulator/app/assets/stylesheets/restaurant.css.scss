@@ -4,28 +4,37 @@
 @import "bootstrap/variables";
 $blueprint: rgb(102,102,204);
 
+#full {
+    margin:0px auto;
+    position:absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow:hidden;
+}
+
 #tablewaitermap {
 }
 
 #main {
   background: $blueprint;
   color: $gray-lighter;
+  height: 100%;
   canvas {
-    width: 100%;
-    overflow-y: hidden;
   }
 }
 
 #top {
   height: 70%;
-  overflow-y: hidden;
-  overflow-x: hidden;
-
 }
 
 #bottom {
   height: 30%;
-  overflow: auto;
+}
+
+#waiters {
+  height: 100%;
 }
 
 tr:nth-child(even) {

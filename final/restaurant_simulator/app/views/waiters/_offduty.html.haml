@@ -1,4 +1,4 @@
 %h2 Waiters
-%select#offduty{:size => 3}
- - Waiter.all.each do |w|
-  %option{:value=> w.name}=w.name
+%ul.list-group#offduty
+ -Waiter.all.each do |w|
+  %li.list-group-item= w.name

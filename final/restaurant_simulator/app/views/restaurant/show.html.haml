@@ -1,14 +1,15 @@
-.row-fluid#top
-  .col-xs-2#tablewaitermap
-    = render 'waiters/onduty'
-  .col-xs-10#main
-    %h2.text-center TABLES
-    %canvas
-.row-fluid#bottom
-  .col-xs-5#notification
-    %h2 Notification Area
-    %p notifications
-  .col-xs-2#waiters
-    = render 'waiters/offduty'
-  .col-xs-5#status
-    = render 'status'
+%div#full
+  .row-fluid#top
+    .col-xs-2#tablewaitermap
+      = render 'waiters/onduty'
+    .col-xs-10#main
+      %h2.text-center TABLES
+      %canvas
+  .row-fluid#bottom
+    .col-xs-5#notification
+      %h2 Notification Area
+      %p notifications
+    .col-xs-2#waiters
+      = render 'waiters/offduty'
+    .col-xs-5#status
+      = render 'status'
