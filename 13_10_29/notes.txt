@@ -1,0 +1,2 @@
+Today will be about jQuery and AJAX/Event Handling
+
