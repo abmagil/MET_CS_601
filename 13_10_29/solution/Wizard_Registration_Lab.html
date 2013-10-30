@@ -1,0 +1,162 @@
+<!doctype html>
+<html>
+<head>
+  <title>MET CS 601 : Metropolitan College : Wizard Registration (Client)</title>
+  <meta charset="utf-8">
+  <script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+  <script src="http://codeorigin.jquery.com/ui/1.10.3/jquery-ui.min.js"></script>
+  <link href="stylesheet.css" type="text/css" rel="stylesheet">
+
+  <script>
+		function navigate(oldTarget, newTarget) {
+		    $("div#" + oldTarget).fadeOut("slow");
+			
+			if ( oldTarget == "aboutYou") {
+				$("img#" + oldTarget + "Done").fadeIn("slow");
+			} else if ( oldTarget == "aboutYou" && newTarget == "locationDiv")
+				$("img#" + oldTarget + "Done").fadeOut("slow");
+
+			
+			if ( oldTarget == "locationDiv") {
+				$("img#" + oldTarget + "Done").fadeIn("slow");
+			} else if ( newTarget == "emailDiv") {
+				$("img#" + newTarget + "Done").fadeOut("slow");
+			}
+			
+			if ( oldTarget == "emailDiv") {
+				$("img#" + oldTarget + "Done").fadeIn("slow");
+			} else if ( newTarget == "reviewDiv") {
+				$("img#" + newTarget + "Done").fadeOut("slow");
+			}									
+		
+			window.setTimeout(function() {
+				$("div#" + newTarget).fadeIn("slow");}, 800);			
+		}
+	</script>
+	<script>
+		$(document).ready(function() {
+			$("img[title=Cancel]").on("click", function() {
+				var conf = confirm("Do you really want to cancel?");
+				if (conf) window.location = "index.php";
+			});
+		});
+		$("img[alt=Previous]").each(function(){alert("hi");});
+		/*.on("click", function() {
+				console.log("preajax");
+				$.ajax({
+					url: "sessionremover.php",
+					data: '{"data":' + $(this).closest("div[id]").attr("id")+ '}',
+					type: "POST"
+				});
+				console.log("postajax");
+			});*/
+		$("img[title=Continue]").each().on("click", function() {
+				$.ajax({
+					url: "sessionbuilder.php",
+					data: '{"data":' + $(this).closest("div[id]").attr("id") + ':' + $(this).parent().prev().text() + "}",
+					type: "POST"
+				});
+			});
+	</script>
+	<style>
+	   .opac { 
+		  filter: alpha(opacity=40);
+		  opacity: 0.4;
+	  }
+	</style>
+</head>
+
+<body>
+
+<div id="Main">
+	
+	<div id="Menu">
+		<ul>
+			<li><img id="aboutYouDone" src="checkmark25x25.png" height="25" width="22" alt="Checkmark(Done)"/>About You</li>
+			<li><img id="locationDivDone" src="checkmark25x25.png" height="25" width="22" alt="Checkmark(Done)"/>Address</li>
+			<li><img id="emailDivDone" src="checkmark25x25.png" height="25" width="22" alt="Checkmark(Done)"/>Contact</li>
+			<li><img id="reviewDivDone" src="checkmark25x25.png" height="25" width="22" alt="Checkmark(Done)"/>Review</li>
+		</ul>
+	</div>
+	
+	<div id="Content">	
+	  <div id="welcomeDiv">
+			<div class="instr">Welcome to Registration.</div>
+			<div class="instr_s">
+				<span>Follow the questions.  Navigate with these controls:</span>
+				<table align="center" class="opac">
+					<tbody>
+						<tr>
+							<td><img src="left48x48.png" class="forty8" alt="Go Back" title="Navigate backwards"/></td>
+							<td><img src="cancel48x48.png" class="forty8" alt="Cancel" title="Cancel"/></td>								
+							<td><img src="right48x48.png" class="forty8" alt="Go Forward" title="Next Page"/></td>							
+						</tr>
+						<tr>
+							<td>Back</td><td>Cancel</td><td>Next</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div>
+				<img onclick="navigate('welcomeDiv', 'aboutYou')" src="right48x48.png" alt="Continue" title="Continue" class="forty8">
+				<div>Lets Begin!</div>
+			</div>
+		</div>
+		
+		<div id="aboutYou">
+			<div class="instr">Tell us your full name.</div>
+			<div class="mediumSmall paddingTen">Other sites want your Date of Birth or your dog's name, but we don't care.</div>
+			<input type="text" size="30" maxlength="100" id="fullName"><img src="spinning-wheel.gif" alt="Wait">
+			<ul class="navBtns">
+				<li><div><img src="left48x48.png" alt="Previous" title="Previous" class="forty8" onclick="navigate('aboutYou', 'welcomeDiv')" ></div></li>
+				<li><div><img src="cancel48x48.png" alt="Cancel" title="Cancel" class="forty8" ></div></li>								
+				<li><div><img src="right48x48.png" alt="Continue" height="48" width="48" title="Continue" onclick="navigate('aboutYou', 'locationDiv')" ></div></li>
+			</ul>
+		</div>
+		
+		<div id="locationDiv">
+			<div class="instr">What state do you currently reside in?</div>
+			<div class="mediumSmall paddingTen">This just gives us something to ask you in case we need to figure something out.</div>
+			<select size="1" id="state">
+				<option>Select One</option>
+				<option>Massachusetts</option>
+				<option>New Hampshire</option>
+				<option>Vermont</option>
+				<option>Maine</option>
+				<option>New York</option>
+				<option>Texas</option>
+			</select>
+			<ul class="navBtns">
+				<li><div><img src="left48x48.png" alt="Previous" onclick="navigate('locationDiv', 'aboutYou')" title="Previous" class="forty8"/></div></li>
+				<li><div><img src="cancel48x48.png" alt="Cancel" title="Cancel" class="forty8"/></div></li>								
+				<li><div><img src="right48x48.png" alt="Continue" class="forty8" title="Continue" onclick="navigate('locationDiv', 'emailDiv')"/></div></li>
+			</ul>
+		</div>
+		
+		<div id="emailDiv">
+			<div class="instr">We need an email address to send you material on you new account.</div>
+			<div class="mediumSmall paddingTen">This is important.  Your email address tells us where to communicate with you.</div>			
+			<input type="text" size="30" maxlength="100" id="fullName">
+			<ul class="navBtns">
+				<li><div><img src="left48x48.png" alt="Previous" title="Continue" class="forty8" onclick="navigate('emailDiv', 'locationDiv')"></div></li>
+				<li><div><img src="cancel48x48.png" alt="Cancel" title="Continue to the next page" class="forty8"></div></li>								
+				<li><div><img src="right48x48.png" alt="Continue" class="forty8" title="Continue" onclick="navigate('emailDiv', 'confirmDiv')"></div></li>
+			</ul>
+		</div>
+		
+		<div id="confirmDiv">
+			<div class="instr">This is what we have on you.  Please check it over:</div>
+			<div><b>Your name:</b> <span class="norm">Andrew Sheehan</span></div>
+			<div><b>Your location:</b> <span class="norm">The beautiful State of Texas</span></div>
+			<div><b>Your email:</b> <span class="norm">asheehan@bu.edu</span></div>
+			<ul class="navBtns">
+				<li><div><img src="left48x48.png" alt="Previous" title="Continue" class="forty8" onclick="navigate('confirmDiv', 'emailDiv')"></div></li>
+				<li><div><img src="abort48x48.png" alt="Abort Registration Request" title="Cancel Request" class="forty8"></div></li>								
+				<li><div><img src="checkmark50x44.png" alt="Complete" class="forty8" title="Complete your registration" onclick="completeRegistration()"/></div></li>
+			</ul>
+		</div>				
+		
+	</div>	
+</div>
+</body>
+</html>

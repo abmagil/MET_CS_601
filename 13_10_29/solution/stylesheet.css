@@ -1,0 +1,105 @@
+@charset "UTF-8";
+
+/* 
+ * http://www.w3.org/International/questions/qa-css-charset.en.php 
+ *     For use of at-rules in css  
+ */
+
+body {
+	font: normal 12px "Trebuchet MS";
+}
+
+img {
+	border: 0;
+}
+
+img[src="spinning-wheel.gif"] {
+	height: 15px;
+	width: 16px;
+	display: none;
+}
+
+.forty8 {
+	height: 48px;
+	width: 48px;
+}
+
+.instr_sm > span + table {
+	padding-top: 20px;
+}
+
+.instr_sm + div {
+	padding-top: 20px;
+}
+
+#Main {
+	width: 600px;
+	text-align: center;
+	margin: auto;
+}
+
+div#Content {
+	float: left;
+	margin: 20px 0px 20px 30px;
+}
+
+.instr {
+	font-size: 24px;
+	color: darkblue;
+}
+.mediumSmall {
+	font-size: 12px;
+	color: #777777;
+}
+.paddingTen {
+	padding: 10px 10px;
+}
+
+#aboutYou > ul {
+	list-style-type: none;
+	margin-right: 30px
+}
+
+#locationDiv > ul {
+	margin-right: 50px;
+}
+
+#emailDiv > ul {
+   margin-right: 30px;
+}
+
+#emailDiv > div.instr, #confirmDiv > div.instr {
+  padding-bottom: 20px;
+}
+
+ul.navBtns li, ul.navBtns div {
+	display: inline;
+}
+
+#Menu ul {
+	text-align: right;
+	list-style-type: none;
+	display: inline;
+	float: left;
+	border-right: 1px solid black
+}
+
+div#Menu ul > li {
+	font-size: 20px;
+	margin: 10px 10px 42px 0;
+	font-style: italic;
+	color: darkgreen;
+}
+
+div#Menu ul > li img {
+	display: none;
+}		
+
+#Main > #Menu, div#Main > div#Content {
+	width: 50%;
+}
+
+
+#aboutYou, #locationDiv, #emailDiv, #confirmDiv {
+	display: none;
+}
