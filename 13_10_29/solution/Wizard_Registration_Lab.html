@@ -35,28 +35,31 @@
 	</script>
 	<script>
 		$(document).ready(function() {
-			$("img[title=Cancel]").on("click", function() {
+			$("img[alt=Cancel]").on("click", function() {
 				var conf = confirm("Do you really want to cancel?");
 				if (conf) window.location = "index.php";
 			});
-		});
-		$("img[alt=Previous]").each(function(){alert("hi");});
-		/*.on("click", function() {
-				console.log("preajax");
-				$.ajax({
-					url: "sessionremover.php",
-					data: '{"data":' + $(this).closest("div[id]").attr("id")+ '}',
-					type: "POST"
-				});
-				console.log("postajax");
-			});*/
-		$("img[title=Continue]").each().on("click", function() {
-				$.ajax({
-					url: "sessionbuilder.php",
-					data: '{"data":' + $(this).closest("div[id]").attr("id") + ':' + $(this).parent().prev().text() + "}",
-					type: "POST"
+		
+			$("img[alt=Previous]").each(function(){
+				$(this).on("click", function() {
+					$.ajax({
+						url: "sessionremover.php",
+						data: { "data" : $(this).closest("input")serialize() },
+						type: "POST"
+					});
+					console.log("postajax");
+					});
+			});
+			$("img[title=Continue]").each(function() {
+				$(this).on("click", function() {
+					$.ajax({
+						url: "sessionbuilder.php",""
+						data: { "data" : $(this).closest("input").serialize() },
+						type: "POST"
+					});
 				});
 			});
+		});
 	</script>
 	<style>
 	   .opac { 
@@ -88,7 +91,7 @@
 					<tbody>
 						<tr>
 							<td><img src="left48x48.png" class="forty8" alt="Go Back" title="Navigate backwards"/></td>
-							<td><img src="cancel48x48.png" class="forty8" alt="Cancel" title="Cancel"/></td>								
+							<td><img src="cancel48x48.png" class="forty8" alt="Cancel-Demonstration" title="Cancel"/></td>								
 							<td><img src="right48x48.png" class="forty8" alt="Go Forward" title="Next Page"/></td>							
 						</tr>
 						<tr>
@@ -97,8 +100,14 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="opac">
+			
+					<span>These buttons are disabled.  They are just to show you how each screen will look.
+					When you click on them, nothing will happen, but in later screens, the Next button will move you to the next screen.  The Back button will move you to the previous screen.  The Cancel button will clear out all of your information and send you to a landing page. 
+					</span>
+			</div>
 			<div>
-				<img onclick="navigate('welcomeDiv', 'aboutYou')" src="right48x48.png" alt="Continue" title="Continue" class="forty8">
+				<img onclick="navigate('welcomeDiv', 'aboutYou')" src="right48x48.png" alt="Start" title="Start" class="forty8">
 				<div>Lets Begin!</div>
 			</div>
 		</div>

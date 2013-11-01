@@ -1,3 +1,3 @@
 <?php
 session_start();
-$_SESSION[$_POST[]]
+$_SESSION[$_POST["data"]]
