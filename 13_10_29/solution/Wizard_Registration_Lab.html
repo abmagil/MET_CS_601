@@ -33,34 +33,7 @@
 				$("div#" + newTarget).fadeIn("slow");}, 800);			
 		}
 	</script>
-	<script>
-		$(document).ready(function() {
-			$("img[alt=Cancel]").on("click", function() {
-				var conf = confirm("Do you really want to cancel?");
-				if (conf) window.location = "index.php";
-			});
-		
-			$("img[alt=Previous]").each(function(){
-				$(this).on("click", function() {
-					$.ajax({
-						url: "sessionremover.php",
-						data: { "data" : $(this).closest("input")serialize() },
-						type: "POST"
-					});
-					console.log("postajax");
-					});
-			});
-			$("img[title=Continue]").each(function() {
-				$(this).on("click", function() {
-					$.ajax({
-						url: "sessionbuilder.php",""
-						data: { "data" : $(this).closest("input").serialize() },
-						type: "POST"
-					});
-				});
-			});
-		});
-	</script>
+	<script src="wizard.js"></script>
 	<style>
 	   .opac { 
 		  filter: alpha(opacity=40);
@@ -115,7 +88,7 @@
 		<div id="aboutYou">
 			<div class="instr">Tell us your full name.</div>
 			<div class="mediumSmall paddingTen">Other sites want your Date of Birth or your dog's name, but we don't care.</div>
-			<input type="text" size="30" maxlength="100" id="fullName"><img src="spinning-wheel.gif" alt="Wait">
+			<input type="text" name="fullName" size="30" maxlength="100" id="fullName"><img src="spinning-wheel.gif" alt="Wait">
 			<ul class="navBtns">
 				<li><div><img src="left48x48.png" alt="Previous" title="Previous" class="forty8" onclick="navigate('aboutYou', 'welcomeDiv')" ></div></li>
 				<li><div><img src="cancel48x48.png" alt="Cancel" title="Cancel" class="forty8" ></div></li>								
@@ -126,7 +99,7 @@
 		<div id="locationDiv">
 			<div class="instr">What state do you currently reside in?</div>
 			<div class="mediumSmall paddingTen">This just gives us something to ask you in case we need to figure something out.</div>
-			<select size="1" id="state">
+			<select size="1" name="state" id="state">
 				<option>Select One</option>
 				<option>Massachusetts</option>
 				<option>New Hampshire</option>
@@ -136,7 +109,7 @@
 				<option>Texas</option>
 			</select>
 			<ul class="navBtns">
-				<li><div><img src="left48x48.png" alt="Previous" onclick="navigate('locationDiv', 'aboutYou')" title="Previous" class="forty8"/></div></li>
+				<li><div><img src="left48x48.png" alt="Previous" onclick="navigate('locationDiv', 'aboutYou')" title="Continue" class="forty8"/></div></li>
 				<li><div><img src="cancel48x48.png" alt="Cancel" title="Cancel" class="forty8"/></div></li>								
 				<li><div><img src="right48x48.png" alt="Continue" class="forty8" title="Continue" onclick="navigate('locationDiv', 'emailDiv')"/></div></li>
 			</ul>
@@ -145,7 +118,7 @@
 		<div id="emailDiv">
 			<div class="instr">We need an email address to send you material on you new account.</div>
 			<div class="mediumSmall paddingTen">This is important.  Your email address tells us where to communicate with you.</div>			
-			<input type="text" size="30" maxlength="100" id="fullName">
+			<input type="text" size="30" maxlength="100" name="address" id="address">
 			<ul class="navBtns">
 				<li><div><img src="left48x48.png" alt="Previous" title="Continue" class="forty8" onclick="navigate('emailDiv', 'locationDiv')"></div></li>
 				<li><div><img src="cancel48x48.png" alt="Cancel" title="Continue to the next page" class="forty8"></div></li>								

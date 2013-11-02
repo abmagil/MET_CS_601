@@ -1,3 +1,7 @@
+<?php
+	require "sessionclear.php";
+?>
+
 <!DOCTYPE html>
 <html>
 	<head>

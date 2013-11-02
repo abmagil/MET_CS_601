@@ -1,5 +1,9 @@
 <?php
 session_start();
-unset($_SESSION[$POST["data"]]);
+$keys = array_keys($_POST);
+foreach($keys as $key) {
+	unset($_SESSION[$key]);
+	print $key;
+}
 
 ?>
