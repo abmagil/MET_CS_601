@@ -2,19 +2,10 @@ Today will be about jQuery and AJAX/Event Handling
 
 Implement the index.php page (make pretty)
 
-On all the views, the back button doesn't work as expected.  It has a bug.  The checkmark that appears next to the steps on the left panel should only come up if the user hascompleted and not cancelled that view (that they are on on within the steps of the wizard).
+
 On the "Tell us your full name" view, there is no validations.  The validation you need to implement are:
-	a. The name must have at least 2 characters for their first name and 2 characters for their last name.   Examples of expected input: "john doe", "Mary Poppins".   Test your work   before you submit it.   I will test your solution(s).
 	b. Make an Ajax call to a server page that checks if that name    already exists in the database.  The event you will use for this is "change" (to trigger the Ajax call).  If that name does exist,    return "NAME_EXISTS".  If not, return "NAME_DOES_NOT_EXIST".
-	c. Show the spinning-wheel (provided in code) while you are processing   the Ajax response.  Hide it when finished.
-	d. In your Ajax handling, tell the user if that name exists in the system (if it does..); clear out that name and ask them to try again.   If the name is okay, then place the 'thumbs_up' image (included in the zip file) next to that textfield.
-	e. Place the user's data into their session (PHP), via an Ajax call.
-On the "Tell us your full name" view, disable the "Next" button till that field passes your validations.
-On the "What state do you currently reside in" view, disable the "Next" button until a valid state is chosen by the user.
-On the "We need an email address to send you material on you new account" view, validate the email address using Regular Expressions.  Use this link: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript to help you figure that out.
+
 On the "This is what we have on you. Please check it over" view, save their data to a database table in your metcs schema, in a new table called, "registration".   This table has:
-	registration_id (int(8)) Primary Key, auto_increment
-	full_name (varchar(255))
-	email (varchar(255))
-	state (char(2))
+
 Upon successful save, redirect the user to a welcome view.  If the save fails, show a message on the page: "Sorry, our system failed.  We are going to fire these developers...";

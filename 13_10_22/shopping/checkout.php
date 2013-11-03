@@ -73,10 +73,19 @@ fieldset {
 					<th>Item</th>
 					<th>Quantity</th>
 					<th>Price</th>
-					<th>Tax</th>
 					<th>Total</th>
 				</tr>
 			</thead>
+			<tbody>
+				<?php foreach ($_SESSION as $key => $value): ?>
+				<tr>		
+					<td class="item"><?php echo $key ?></td>
+					<td class="quantity"><?php echo $value['quantity'] ?></td>
+					<td class="tableprice"><?php echo $value['price'] ?></td>
+					<td class="total"> </td>
+				</tr>
+			<?php endforeach ?>
+			</tbody>
 		</table>
 	</div>
 	

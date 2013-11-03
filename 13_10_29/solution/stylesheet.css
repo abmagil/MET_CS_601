@@ -16,7 +16,7 @@ img {
 img[src="spinning-wheel.gif"] {
 	height: 15px;
 	width: 16px;
-	display: none;
+	display:none;
 }
 
 .forty8 {
@@ -53,6 +53,11 @@ div#Content {
 }
 .paddingTen {
 	padding: 10px 10px;
+}
+
+.disabled {
+	filter: alpha(opacity=40);
+	opacity: 0.4;
 }
 
 #aboutYou > ul {

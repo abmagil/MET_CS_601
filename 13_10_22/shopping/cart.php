@@ -1,6 +1,5 @@
 <?php
 	session_start();
-	$_SESSION["name"] = "aaron";
 ?>
 
 <!doctype html>
@@ -37,7 +36,10 @@
 	 <tbody>
 		<tr>
 			<td><img id="remove" src="images/remove.png" alt="Remove"></td>
-			<td><img name="item_23" src="images/beautiful.jpg" alt="beautiful">
+			<td><img name="item_23" src="images/beautiful.jpg" alt="beautiful" >
+				<div id="dialog" class="hidden">
+					<p>These are the details for the Wild Hearts bouquet.</p>
+				</div>
 				&quot;Wild Hearts&quot;</td>
 			<td>$120.00</td>
 			<td>
