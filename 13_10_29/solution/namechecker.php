@@ -2,7 +2,7 @@
 	require_once "pdo_connect.php";
 	
 	$name = strtolower($_GET['fullName']);
-	$sql = "select * from registration where full_name = '" . $name . "'";
+	$sql = "select * from registration2 where full_name = '" . $name . "'";
   	$pdoStmnt = $db->query($sql);
 	
 	if ($pdoStmnt->rowCount() == 0) {

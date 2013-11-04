@@ -145,3 +145,20 @@ function setEmailValidation() {
 	});
 
 }
+
+function completeRegistration() {
+	$("img[alt=Complete]").on("click", function() {
+		$.ajax({
+			url : "saveToDB.php",
+			success : function(data) {
+				if (data == "PASS") {
+					alert("Success!");
+					window.location.reload(true);
+				}
+				if (data == "FAIL") {
+					$("img[alt=Complete]").parent().after("<div><p>Sorry, our system failed.  We are going to fire these developers...</p></div>");
+				}
+			}
+		});
+	});
+}

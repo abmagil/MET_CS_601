@@ -1,10 +1,3 @@
 Today will be about jQuery and AJAX/Event Handling
 
-Implement the index.php page (make pretty)
-
-
-
-
-On the "This is what we have on you. Please check it over" view, save their data to a database table in your metcs schema, in a new table called, "registration".   This table has:
-
 Upon successful save, redirect the user to a welcome view.  If the save fails, show a message on the page: "Sorry, our system failed.  We are going to fire these developers...";
