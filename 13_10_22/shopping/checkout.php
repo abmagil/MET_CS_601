@@ -108,7 +108,9 @@ fieldset {
       </button>
       <div id="pay-modal" class="hidden">
       	<h5>Thank you</h5>
-      	<p>Thank you for your purchase.  A normal website would let you pay now.</p>
+      	<p class="subtotal"><b>Subtotal:</b><span></span></p>
+      	<p class="taxtotal"><b>Tax:</b><span></span></p>
+      	<p class="grandtotal"><b>Grand Total:</b><span></span></p>
       </div>
     </div>
 
