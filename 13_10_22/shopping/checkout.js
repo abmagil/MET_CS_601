@@ -39,7 +39,7 @@ $(function() {
     
     $("div[alt=PayDiv]").on("click", function() {
     	if (fireValidators()) { 
-	    	$("#pay-modal").dialog({
+    		$("#pay-modal").dialog({
 	    		modal : true
 	    	});
 		}
@@ -50,6 +50,10 @@ $(function() {
 function fireValidators() {
 	if (!(notempty($("#first_name")) && notempty($("#last_name")) && notempty($("#line1")) && notempty($("#city")))) {
 		alert("Please enter all required information.");
+		return false;
+	}
+	else {
+		return true;
 	}
 }	
 
