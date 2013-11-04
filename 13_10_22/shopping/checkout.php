@@ -82,7 +82,7 @@ fieldset {
 					<td class="item"><?php echo $key ?></td>
 					<td class="quantity"><?php echo $value['quantity'] ?></td>
 					<td class="tableprice"><?php echo $value['price'] ?></td>
-					<td class="total"> </td>
+					<td class="total"><?php echo "$". number_format(($_SESSION['Wild Hearts']['quantity'] * str_replace("\$", '', $_SESSION['Wild Hearts']['price'])), 2) ?></td>
 				</tr>
 			<?php endforeach ?>
 			</tbody>
@@ -93,13 +93,23 @@ fieldset {
 		<input type="text" maxlength="25" size="25" name="couponCode" id="couponCode" alt="Coupon Code" placeholder="Coupon Code">
 		<button type="button" id="couponBtn">Enter Coupon</button>
 	</div>
-
+	<div id="taxField">
+		<span>Tax Rate</span>
+		<p>Please select the sales tax for your area.</p>
+		<div id="slider" max=10 min=1 value="5"></div>
+		<label id="taxAmt" type="text" readonly length="3em"></label><br />
+		<input type="text" name="grandtotal" id="grandtotal" placeholder="Grand Total" readonly="true">
+	</div>
 
     <div alt="PayDiv">
       <button type="button" id="ChargeBtn">
 	   <img src="images/online_payments.png" alt="Pay Now">
 	     Pay Now
       </button>
+      <div id="pay-modal" class="hidden">
+      	<h5>Thank you</h5>
+      	<p>Thank you for your purchase.  A normal website would let you pay now.</p>
+      </div>
     </div>
 
    </div>

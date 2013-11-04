@@ -5,9 +5,4 @@ JS Arrays
 JS Events
 	Only one event for the Document object: onreadystatechange(readystatechange)
 	
-
-1. On the cart page:  if they want to click on the item name, raise either a model window with product details (name, caption, description, ratings, etc) [JavaScript, CSS, DHTML]
-
-4. Add a Sales Tax calculation/calculator to the checkout page. [JavaScript]
-5. Add a Coupon Redemption code field in the checkout page. [JavaScript, PHP, CSS].   The only Promo code is "PROMO-23".  It takes off 10% of their total.
-6. Implement the "Pay Now" Button in the checkout page.   Have it raise a modal dialog that disables the user from interacting with the background page.  
+  

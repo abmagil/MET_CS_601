@@ -38,7 +38,9 @@
 			<td><img id="remove" src="images/remove.png" alt="Remove"></td>
 			<td><img name="item_23" src="images/beautiful.jpg" alt="beautiful" >
 				<div id="dialog" class="hidden">
-					<p>These are the details for the Wild Hearts bouquet.</p>
+					<h5>Wild Hearts Bouquet</h5>
+					<p><b>Price: </b> $120.00</p>
+					<p>Wild hearts is for those that have wild in their hearts. A beautiful collection of flowers, that will cost your plenty. We love selling these flowers - it boosts our profit margin by leaps and bounds.</p>
 				</div>
 				&quot;Wild Hearts&quot;</td>
 			<td>$120.00</td>

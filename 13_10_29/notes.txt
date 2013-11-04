@@ -3,8 +3,7 @@ Today will be about jQuery and AJAX/Event Handling
 Implement the index.php page (make pretty)
 
 
-On the "Tell us your full name" view, there is no validations.  The validation you need to implement are:
-	b. Make an Ajax call to a server page that checks if that name    already exists in the database.  The event you will use for this is "change" (to trigger the Ajax call).  If that name does exist,    return "NAME_EXISTS".  If not, return "NAME_DOES_NOT_EXIST".
+
 
 On the "This is what we have on you. Please check it over" view, save their data to a database table in your metcs schema, in a new table called, "registration".   This table has:
 
