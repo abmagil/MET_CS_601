@@ -5,25 +5,9 @@ $(function() {
 	
 	$("button").button();
 	
-	$("#slider").slider({
-	        range: "min",
-	        min: 0,
-	        max: 10,
-	        value : 0,
-	        step : 0.1,
-	        slide: function( event, ui ) {
-	            $( "#amount" ).val( ui.value );
-	            $(this).find('.ui-slider-handle').text(ui.value);
-	        },
-	        create: function(event, ui) {
-	            var v=$(this).slider('value');
-	            $(this).find('.ui-slider-handle').text(v);
-	            setTaxAndTotal();
-	        },
-	        change : function() {
-	        	setTaxAndTotal();
-	    	}
-	    }); 
+	$("#stateselector").on("change", function() {
+		setTaxAndTotal();
+	});
     
     $("#couponBtn").on("click", function() {
     	$.ajax({
@@ -37,7 +21,7 @@ $(function() {
     	});
     });
     
-    $("div[alt=PayDiv]").on("click", function() {
+    $("div[alt=PayDiv] button").on("click", function() {
     	setModalPrices();
     	if (fireValidators()) { 
     		$("#pay-modal").dialog({
@@ -83,12 +67,20 @@ function notempty(domNode) {
 
 //Returns the taxrate as a decimal (5% = 0.05)
 function getTaxRate() {
-	return  $( "#slider" ).slider("option","value")/100;
+	$.ajax({
+		url : "getTax.php",
+		method: "GET",
+		data : $("#stateselector").serialize(),
+		success : function(data) {
+			
+		}
+	});
 }
 
 function setTaxAndTotal() {
 	var price = getSubTotal();
-	var taxRate = 1 + getTaxRate();
+	var taxRate = getTaxRate();
+	var taxRate = 1 + taxRate;
 	$("#grandtotal").val("$" + (price * taxRate).toFixed(2));
 }
 

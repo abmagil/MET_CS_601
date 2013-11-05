@@ -63,6 +63,15 @@ fieldset {
 
      <div>
 	   <input type="text" maxlength="25" size="25" name="city" id="city" alt="City" placeholder="City">
+	   <select id="stateselector" name="stateselector">
+	   	<option>Please Select One</option>
+	   	<option value="MA">Massachusetts</option>
+	   	<option value="NY">New York</option>
+	   	<option value="CT">Connecticut</option>
+	   	<option value="NH">New Hampshire</option>
+	   	<option value="VT">Vermont</option>
+	   	<option value="ME">Maine</option>
+	   </select>
 	 </div>
 	</fieldset>
 	<div>
@@ -95,8 +104,6 @@ fieldset {
 	</div>
 	<div id="taxField">
 		<span>Tax Rate</span>
-		<p>Please select the sales tax for your area.</p>
-		<div id="slider" max=10 min=1 value="5"></div>
 		<label id="taxAmt" type="text" readonly length="3em"></label><br />
 		<input type="text" name="grandtotal" id="grandtotal" placeholder="Grand Total" readonly="true">
 	</div>
