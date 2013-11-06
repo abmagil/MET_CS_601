@@ -14,9 +14,6 @@ $blueprint: rgb(102,102,204);
     overflow:hidden;
 }
 
-#tablewaitermap {
-}
-
 #main {
   background: $blueprint;
   color: $gray-lighter;
@@ -35,6 +32,11 @@ $blueprint: rgb(102,102,204);
 
 #waiters {
   height: 100%;
+}
+
+.floorplan {
+  height: inherit;
+  width: inherit;
 }
 
 tr:nth-child(even) {
