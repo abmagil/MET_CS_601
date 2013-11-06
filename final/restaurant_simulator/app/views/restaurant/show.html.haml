@@ -1,7 +1,7 @@
 %div#full
   .row-fluid#top
     .col-xs-2#tablewaitermap
-      = render 'waiters/onduty'
+      = render 'waiter/onduty'
     .col-xs-10#main
       = render 'tables'
   .row-fluid#bottom
@@ -9,6 +9,6 @@
       %h2 Notification Area
       %p notifications
     .col-xs-2#waiters
-      = render 'waiters/offduty'
+      = render 'waiter/offduty'
     .col-xs-5#status
       = render 'status'
