@@ -1,6 +1,6 @@
 %h2.text-center TABLES
 .floorplan
- %svg
-  =draw_table Table::TABLE_FOR_TWO % [100, 100] 
+ %canvas#canvas
+  -#=draw_table Table::TABLE_FOR_TWO % [100, 100] 
   -#TODO Figure out a way to make this responsive
-  =draw_table Table::TABLE_FOR_TWO % [250, 250]
+  -#=draw_table Table::TABLE_FOR_TWO % [250, 250]

@@ -2,7 +2,14 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap/variables";
-$blueprint: rgb(102,102,204);
+//$blueprint: rgb(102,102,204);
+$blueprint: #1240AB;
+
+svg {
+  height: 100%;
+  width: 100%;
+}
+
 
 #full {
     margin:0px auto;
@@ -18,7 +25,9 @@ $blueprint: rgb(102,102,204);
   background: $blueprint;
   color: $gray-lighter;
   height: 100%;
-  canvas {
+  div {
+    height: 100%;
+    width: 100%;
   }
 }
 

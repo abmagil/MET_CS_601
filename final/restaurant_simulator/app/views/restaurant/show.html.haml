@@ -3,7 +3,8 @@
     .col-xs-2#tablewaitermap
       = render 'waiter/onduty'
     .col-xs-10#main
-      = render 'tables'
+      = render 'tables' 
+      -#Long term, should maybe change that to a view and pass it something from the DB?
   .row-fluid#bottom
     .col-xs-5#notification
       %h2 Notification Area

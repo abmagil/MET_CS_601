@@ -14,6 +14,8 @@ gem 'bootstrap-will_paginate', '0.0.9' #todo remove
 
 group :development do
   gem 'annotate', '2.5.0'
+  gem 'thin'
+  gem 'raphael-rails', '~>2.1.2'
 end
 
 # Gems used only for assets and not required
