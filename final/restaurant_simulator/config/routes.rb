@@ -5,6 +5,7 @@ RestaurantSimulator::Application.routes.draw do
   
   resources :tables
   resources :waiters
+  resources :party
   
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -7,8 +7,7 @@
       -#Long term, should maybe change that to a view and pass it something from the DB?
   .row-fluid#bottom
     .col-xs-5#notification
-      %h2 Notification Area
-      %p notifications
+      = render 'party/show'
     .col-xs-2#waiters
       = render 'waiter/offduty'
     .col-xs-5#status
