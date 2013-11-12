@@ -6,5 +6,9 @@ class PartyController < ApplicationController
 	def new
 	#	@party = Party.new
 	end
+	
+	def index
+	  @parties = Parties.all
+	end
 
 end
