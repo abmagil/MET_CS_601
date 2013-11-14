@@ -8,5 +8,16 @@
 #
 
 class Party < ActiveRecord::Base
-  attr_accessible :title, :body
+	belongs_to :table
+	
+	attr_accessible :title, :body, :table
+
+	def initialize
+		
+	end
+
+	def update(table)
+		
+	end
+
 end

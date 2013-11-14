@@ -18,5 +18,6 @@ class Table < ActiveRecord::Base
   
   attr_accessible :capacity, :name
   has_one :waiter, inverse_of: :table
+  has_one :party
   belongs_to :restaurant
 end
