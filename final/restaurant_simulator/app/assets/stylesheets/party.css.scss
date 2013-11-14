@@ -1,3 +1,26 @@
 // Place all the styles related to the party controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+@import "colors";
+#notification {	
+	.arrival {
+		width:100%;
+	}
+
+	li {
+		div[class^='col'] {
+			padding-left: 0;
+			padding-right: 0;
+		}
+	}
+	
+	button {
+		font-weight: bolder;
+		color: white;
+		width: 100%;
+		.btn-success {
+			
+		}
+	}
+	
+}

@@ -2,8 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "bootstrap/variables";
-//$blueprint: rgb(102,102,204);
-$blueprint: #1240AB;
+@import "colors";
 
 svg {
   height: 100%;
