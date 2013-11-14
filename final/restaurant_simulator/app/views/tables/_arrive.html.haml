@@ -1,4 +1,4 @@
-= button_to "Arrive Party", {action: 'new' , remote: "true", controller: "party"}, {:method=>:get, :form_class=>"btn btn-success"}
+= button_to "Arrive Party", :action => 'create' , :remote => true, :controller => "party", :form => { "data-type" => "json" }, :form_class=>"btn btn-success"
 %h2 Notification Area
 %hr -#I'd really like to replace this with CSS at some point...
 %p notifications
