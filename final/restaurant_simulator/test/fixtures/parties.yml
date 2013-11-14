@@ -1,15 +1,10 @@
 # == Schema Information
 #
-# Table name: tables
+# Table name: parties
 #
-#  id            :integer          not null, primary key
-#  restaurant_id :integer
-#  capacity      :integer
-#  created_at    :datetime         not null
-#  updated_at    :datetime         not null
-#  name          :string(255)      not null
-#  occupied      :boolean
-#  drawString    :string(255)
+#  id         :integer          not null, primary key
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
