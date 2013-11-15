@@ -2,12 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "colors";
+@import "bootstrap/variables";
+@import "bootstrap/mixins";
+
+
 #notification {	
 	.arrival {
 		width:100%;
 	}
 
 	li {
+		font-weight: bolder;
+		div > span {
+			background-color: $btn-success-color;
+			display: inline-block;
+			margin-bottom: 0; // For input.btn
+			font-weight: $btn-font-weight;
+			text-align: center;
+			vertical-align: middle;
+			background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+			border: 1px solid transparent;
+			white-space: nowrap;
+			width: 100%;
+			 @include button-size($padding-base-vertical, $padding-base-horizontal, $font-size-base, $line-height-base, 0);
+			 @include button-variant($btn-success-color, $btn-success-bg, $btn-success-border);
+			 @include user-select(none);
+			 &:hover {	//There must be a better way to reset this.  Probably once I abstract span-with-button-style into own helper?
+			 	background-color:  $btn-success-bg;
+			 }
+		}
+
 		div[class^='col'] {
 			padding-left: 0;
 			padding-right: 0;
@@ -15,12 +39,8 @@
 	}
 	
 	button {
-		font-weight: bolder;
 		color: white;
 		width: 100%;
-		.btn-success {
-			
-		}
 	}
 	
 }
