@@ -14,12 +14,6 @@
 #  y             :integer
 #
 
-class Table < ActiveRecord::Base
-  
-  attr_accessible :capacity, :name, :x, :y, :occupied
-  has_one :waiter, inverse_of: :table
-  has_one :party
-  belongs_to :restaurant
-
-
+class RectTable < Table
+  attr_accessible :width, :height
 end

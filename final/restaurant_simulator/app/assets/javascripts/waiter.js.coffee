@@ -4,10 +4,6 @@
 #@import "colors";
 
 $ ->
-  paper = new Raphael(document.getElementById('canvasholder'))
-  
-  circle = paper.circle(50, 40, 10)
-  circle.attr("fill", "$white")
   $("#offduty li").on 
     click: ->
       $(this).addClass("working") #Show that this waiter is on duty.  Next step is remove from list.  Maybe with display:none so that order stays correct

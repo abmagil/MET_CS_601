@@ -1,13 +1,13 @@
 class PartyController < ApplicationController
   
-	def create
-		@party = Party.new
+	def create	#Not used currently.  Clean up.
+		# @party = Party.new
 
-		respond_to do |format|
-			format.js {}
-			format.json { render json: @party.table.name}
-			#format.html
-		end
+		# respond_to do |format|
+		# 	format.js {}
+		# 	format.json { render json: @party.table.name}
+		# 	#format.html
+		# end
 	end
 
 	def new

@@ -9,7 +9,9 @@
 #  updated_at    :datetime         not null
 #  name          :string(255)      not null
 #  occupied      :boolean
-#  drawString    :string(255)
+#  type          :string(255)
+#  x             :integer
+#  y             :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
