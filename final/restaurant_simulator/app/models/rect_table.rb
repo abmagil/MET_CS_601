@@ -12,8 +12,15 @@
 #  type          :string(255)
 #  x             :integer
 #  y             :integer
+#  width         :integer
+#  height        :integer
+#  radius        :integer #IRRELEVANT HERE
 #
 
 class RectTable < Table
+  validates :width, :height, presence: true
+  #validates :radius, absence: true ##TODO Not in 3.2, only in 4+
+
   attr_accessible :width, :height
+
 end

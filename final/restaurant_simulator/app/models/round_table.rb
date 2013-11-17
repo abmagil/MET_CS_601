@@ -12,9 +12,16 @@
 #  type          :string(255)
 #  x             :integer
 #  y             :integer
+#  width         :integer #IRRELEVANT HERE
+#  height        :integer #IRRELEVANT HERE
+#  radius        :integer
 #
 
 class RoundTable < Table
-  # attr_accessible :title, :body
+  #validates :width, :height, absence: true ##TODO Not in 3.2.  Only in 4.
+  validates :radius, presence: true
+
   attr_accessible :radius
+
+
 end

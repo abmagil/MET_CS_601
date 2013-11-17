@@ -12,6 +12,9 @@
 #  type          :string(255)
 #  x             :integer
 #  y             :integer
+#  width         :integer
+#  height        :integer
+#  radius        :integer
 #
 
 require 'test_helper'

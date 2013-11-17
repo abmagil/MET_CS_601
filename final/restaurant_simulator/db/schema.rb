@@ -11,16 +11,9 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131117012700) do
+ActiveRecord::Schema.define(:version => 20131117210011) do
 
   create_table "parties", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "rect_tables", :force => true do |t|
-    t.integer  "height"
-    t.integer  "width"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
@@ -30,12 +23,6 @@ ActiveRecord::Schema.define(:version => 20131117012700) do
     t.integer  "customers_served"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
-  end
-
-  create_table "round_tables", :force => true do |t|
-    t.integer  "radius"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
   end
 
   create_table "tables", :force => true do |t|
@@ -48,6 +35,9 @@ ActiveRecord::Schema.define(:version => 20131117012700) do
     t.string   "type"
     t.integer  "x"
     t.integer  "y"
+    t.integer  "width"
+    t.integer  "height"
+    t.integer  "radius"
   end
 
   create_table "waiters", :force => true do |t|

@@ -9,15 +9,18 @@ r = Restaurant.create(cash_on_hand: 180000, customers_served: 0)
 
 range = 1..4
 range.each do |t|  #First four tables seat 2 people each
-  r.tables.create(capacity: 2, name: t)
+  t = r.tables.create!(capacity: 2, name: t, x: t * 3, y: 30, type: "RoundTable")
+  t.radius= 15
+  t.save!
 end
 
 range = 5..9
 range.each do |t| #Next five tables hold 4 people each
-  r.tables.create(capacity: 4, name: t)
+  t = r.tables.create!(capacity: 4, name: t, x: t * 4, y: 40, type: "RectTable")
+  t.height= 15
+  t.width= 25
+  t.save!
 end
-
-r.tables.create(capacity: 4, name: "10")
 
 Waiter.create(name: "Aaron", good: false, onduty: false)
 Waiter.create(name: "Becky", good: true, onduty: false)
