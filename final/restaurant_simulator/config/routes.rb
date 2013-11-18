@@ -3,6 +3,7 @@ RestaurantSimulator::Application.routes.draw do
   
   match '/help',    to: 'restaurant#help',    via: 'get'
   
+  resources :restaurant
   resources :tables
   resources :waiters
   resources :party

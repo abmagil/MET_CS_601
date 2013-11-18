@@ -1,7 +1,7 @@
 class RestaurantController < ApplicationController
   
   def show
-  	@tables = Table.all
+  	@rest = Restaurant.first #for simplicity.  Makes it easy to build out later.
   end
   
 end
