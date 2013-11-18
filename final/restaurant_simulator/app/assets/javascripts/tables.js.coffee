@@ -10,7 +10,7 @@ $ ->
 
   
   
-  circle = paper.circle(50, 40, 10)
-  circle.attr("fill", "#ff0000")
-  circle.hover ->
-  	console.log "alert" #Change to highlight the table? Maybe just remove entirely
+  # circle = paper.circle(50, 40, 10)
+  # circle.attr("fill", "#ff0000")
+  # circle.hover ->
+  # 	console.log "alert" #Change to highlight the table? Maybe just remove entirely

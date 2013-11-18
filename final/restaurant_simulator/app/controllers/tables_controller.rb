@@ -28,35 +28,37 @@ class TablesController < ApplicationController
     circs = tables.where(type: "RoundTable")
     rects = tables.where(type: "RectTable")
     
-    list = {
-      :rounds => round_table_json(circs),
-      :quads => rect_table_json(rects)
-    }
-    list.to_json
-  end
-
-  def round_table_json(tables)
-    list = tables.map do |table| #Obviously room for improvement here
-      {
-        :cx => table.x,
-        :cy => table.y,
-        :rad => table.radius,
-        #:fill => table.fill
-      }
+    list = []
+    circs.each do |table|
+      list << round_table_json(table)
+    end
+    rects.each do |table|
+      list << rect_table_json(table)
     end
     list.to_json
   end
 
-  def rect_table_json(tables)
-    list = tables.map do |table| #Obviously room for improvement here
-      {
+  def round_table_json(table)
+       jsonified =  {
+        :type => "circle",
+        :cx => table.x,
+        :cy => table.y,
+        :r => table.radius,
+        :fill => '#000'
+      }
+    jsonified
+  end
+
+  def rect_table_json(table)
+       jsonified = {
+        :type => "rect",
         :x => table.x,
         :y => table.y,
         :width => table.width,
         :height => table.height,
+        :fill => '#000'
       }
-      end
-      list.to_json
+      jsonified
   end
   
 end
