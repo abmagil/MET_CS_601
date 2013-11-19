@@ -1,13 +1,13 @@
-%table.table
+%table{:class => "table table-striped"}
   %thead
     %tr{:colspan => 4,:rowspan => 2}
       %h2 Status
     %tr
       %td{:colspan => 3} Tables Occupied
-      %td 5
+      %td= Restaurant.first.tables.count('occupied')
     %tr
       %td{:colspan => 3} Bank Account
-      %td 5
+      %td= Restaurant.first.cash_on_hand
     %tr
       %td{:colspan => 3} Customers Served
-      %td 5
+      %td= Restaurant.first.customers_served
