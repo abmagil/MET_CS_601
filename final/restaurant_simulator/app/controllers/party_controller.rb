@@ -1,27 +1,14 @@
 class PartyController < ApplicationController
   
-	def create	#Not used currently.  Clean up.
-		# @party = Party.new
-
-		# respond_to do |format|
-		# 	format.js {}
-		# 	format.json { render json: @party.table.name}
-		# 	#format.html
-		# end
-	end
-
-	def new
-		@party = Party.new
+	def create
+		@party = Party.create
 		respond_to do |format|
-			format.html { render :partial => 'new' }
+			format.html { render :partial => 'new', :object => @party, :value => @party.id}
 			format.js {}
 		end
 	end
 	
 	def index
-	 	@parties = Parties.all
+	 	@parties = Party.all
 	end
-
-
-
 end

@@ -3,8 +3,9 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $ ->
-	$("form[action='/party/new'").bind "ajax:success",  (evt, data, status, xhr) ->
+	$("form[action='/party'").bind "ajax:success",  (evt, data, status, xhr) ->
     addbtn = $("#notifications").prepend data
     $('button', addbtn).on
       click: ->
-        console.log(this)    
+        alert("Please select a table to seat them.")
+        

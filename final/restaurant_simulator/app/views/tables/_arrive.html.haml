@@ -1,3 +1,3 @@
-= button_to "Arrive Party", {:action => 'new' , :controller => "party"}, {:remote => true, :form => { "data-type" => "html" }, :method => :get,}
+= button_to "Arrive Party", {:action => 'create' , :controller => "party"}, {:remote => true, :form => { "data-type" => "html" }, :method => :post,}
 %h2 Notification Area
 %ul#notifications{:class=> "list-unstyled"}

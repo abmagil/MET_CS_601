@@ -1,7 +1,6 @@
 class TablesController < ApplicationController
   
   def edit
-      @tables = Table.all
   end
 
   def create
@@ -9,7 +8,7 @@ class TablesController < ApplicationController
   end
 
   def index
-  	render json: custom_json(Restaurant.first.tables) #TODO obviously not its final form
+  	render json: custom_json(Restaurant.first.tables) #TODO obviously not its final form.  Eventually refactor restaurants out into a resource
   end
 
   def update(party)

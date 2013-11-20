@@ -6,8 +6,7 @@ $ ->
  	paper = new Raphael(document.getElementById('canvasholder'))
  	$.ajax(url: '/tables').done (json) ->
  		paper.add(json)
-  
-  # circle = paper.circle(50, 40, 10)
-  # circle.attr("fill", "#ff0000")
-  # circle.hover ->
-  # 	console.log "alert" #Change to highlight the table? Maybe just remove entirely
+ 		paper.forEach (el) ->
+      el.click ->
+        $.ajax(url: '/tables/' + el.id + '/edit', 
+                data: {"occupy": "seat"})
