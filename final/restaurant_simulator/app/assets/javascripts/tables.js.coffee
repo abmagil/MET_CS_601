@@ -6,9 +6,6 @@ $ ->
  	paper = new Raphael(document.getElementById('canvasholder'))
  	$.ajax(url: '/tables').done (json) ->
  		paper.add(json)
- 		console.log json
-
-  
   
   # circle = paper.circle(50, 40, 10)
   # circle.attr("fill", "#ff0000")
