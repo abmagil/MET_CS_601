@@ -1,23 +1,23 @@
 class TablesController < ApplicationController
   
   def edit
+
   end
 
   def create
-    	@table = Table.new
+      @table = Table.new
   end
 
   def index
-  	render json: custom_json(Restaurant.first.tables) #TODO obviously not its final form.  Eventually refactor restaurants out into a resource
+    render json: custom_json(Restaurant.first.tables) #TODO obviously not its final form.  Eventually refactor restaurants out into a resource
   end
 
-  def update(party)
-  	self.party = party
-  	respond_to do |format|
-  		format.js {}
-  		format.json { render json: self.name}
-  		#format.html
-	  end
+  def update
+   @table = Table.find(params[:id])
+  # @waiter = Waiter.find_by :name => params[:data]
+    respond_to do |format|
+      format.json {json: @table}
+    end
   end
 
   private
