@@ -1,4 +1,5 @@
 @import "bootstrap/variables";
+@import "colors";
 
 #offduty {
 height: 70%;
@@ -6,7 +7,11 @@ overflow-y: scroll;
 }
 
 .working {
-	background-color: green;
+	background-color: $green;
     	color: white;
     	font-weight: bolder;
+}
+
+.highlightedworking {
+	background-color: $lightgreen;
 }

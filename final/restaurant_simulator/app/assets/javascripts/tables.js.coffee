@@ -29,3 +29,10 @@ $ ->
 		onduty = $("#tablewaitermap > table")
 		for t in json
 			onduty.append "<tr><td>Table " + t.title + "</td><td></td></tr>"
+		$("tr",onduty).hover (->
+			waiternm = $(this).children('td').eq(1).text()
+			tables = $("tr:contains(" + waiternm + ")")
+			tables.addClass("highlightedworking") if $(this).hasClass("working")
+		), -> 
+			$("tr", onduty).removeClass("highlightedworking")
+
