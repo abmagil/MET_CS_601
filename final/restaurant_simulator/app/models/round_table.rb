@@ -12,9 +12,10 @@
 #  type          :string(255)
 #  x             :integer
 #  y             :integer
-#  width         :integer #IRRELEVANT HERE
-#  height        :integer #IRRELEVANT HERE
+#  width         :integer
+#  height        :integer
 #  radius        :integer
+#  waiter_id     :integer
 #
 
 class RoundTable < Table

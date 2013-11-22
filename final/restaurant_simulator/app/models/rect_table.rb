@@ -14,7 +14,8 @@
 #  y             :integer
 #  width         :integer
 #  height        :integer
-#  radius        :integer #IRRELEVANT HERE
+#  radius        :integer
+#  waiter_id     :integer
 #
 
 class RectTable < Table

@@ -15,6 +15,7 @@
 #  width         :integer
 #  height        :integer
 #  radius        :integer
+#  waiter_id     :integer
 #
 
 require 'test_helper'

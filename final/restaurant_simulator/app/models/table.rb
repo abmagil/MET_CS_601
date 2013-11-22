@@ -15,12 +15,13 @@
 #  width         :integer
 #  height        :integer
 #  radius        :integer
+#  waiter_id     :integer
 #
 
 class Table < ActiveRecord::Base
   
   attr_accessible :capacity, :name, :x, :y, :occupied, :type #TODO Only added type because it was causing a hangup in the seeds.rb file.  MUST remove for security pruposes eventually.
-  has_one :waiter, inverse_of: :table
+  belongs_to :waiter
   has_one :party
   belongs_to :restaurant
 

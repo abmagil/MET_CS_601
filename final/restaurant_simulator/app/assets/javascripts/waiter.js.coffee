@@ -6,6 +6,5 @@
 $ ->
   $("#offduty li").on 
     click: ->
-    	$(this).addClass("working") #Show that this waiter is on duty.  Next step is remove from list.  Maybe with display:none so that order stays correct
     	window.update["type"] = "waiter"
     	window.update["data"] = this

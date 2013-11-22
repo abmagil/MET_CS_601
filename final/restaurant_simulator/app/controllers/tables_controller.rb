@@ -9,14 +9,15 @@ class TablesController < ApplicationController
   end
 
   def index
-    render json: custom_json(Restaurant.first.tables) #TODO obviously not its final form.  Eventually refactor restaurants out into a resource
-  end
+    render json: custom_json(Restaurant.first.tables)   #TODO obviously not its final form.  Eventually refactor restaurants out into a resource
+  end 
 
   def update
    @table = Table.find(params[:id])
-  # @waiter = Waiter.find_by :name => params[:data]
+   @waiter = Waiter.find_by_name params[:data]
+   @table.waiter = @waiter
     respond_to do |format|
-      format.json {json: @table}
+      format.json {render json: {:name=> @table.waiter.name, :table => @table.id}}
     end
   end
 
@@ -43,9 +44,9 @@ class TablesController < ApplicationController
         :cx => table.x,
         :cy => table.y,
         :r => table.radius,
-        :fill => '#000'
+        :fill => '#000',
+        :title => table.id
       }
-    jsonified
   end
 
   def rect_table_json(table)
@@ -55,9 +56,9 @@ class TablesController < ApplicationController
         :y => table.y,
         :width => table.width,
         :height => table.height,
-        :fill => '#000'
+        :fill => '#000',
+        :title => table.id
       }
-      jsonified
   end
   
 end
