@@ -11,11 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131122235139) do
+ActiveRecord::Schema.define(:version => 20131127161425) do
 
   create_table "parties", :force => true do |t|
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "table_id"
+    t.boolean  "seated"
+    t.boolean  "done"
   end
 
   create_table "restaurants", :force => true do |t|
@@ -39,7 +42,6 @@ ActiveRecord::Schema.define(:version => 20131122235139) do
     t.integer  "height"
     t.integer  "radius"
     t.integer  "waiter_id"
-    t.integer  "party_id"
   end
 
   create_table "waiters", :force => true do |t|

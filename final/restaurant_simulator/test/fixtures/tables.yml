@@ -16,7 +16,6 @@
 #  height        :integer
 #  radius        :integer
 #  waiter_id     :integer
-#  party_id      :integer
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html

@@ -24,18 +24,25 @@ $ ->
 						type: window.update["type"]
 						data: window.update["data"] 	#Throws uncaught reference error before this is set, but the code shouldn't be called because of beforeSend
 					success: (data, textStatus, jqXHR) ->
+						type = data["data"]
 						name = data["name"]
 						table =  data["table"] 
-						#Mark as working on the Waiters list
-						$("li:contains(" + name + ")").addClass("working")
-						#Mark as working in the Waiter Map
-						$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
-						#Clear out the update object
-						window.update = {}
-						#Maintain state in window.tables
-						window.tables[table]["waiter"] = name
+						if type is "waiter"
+							#Mark as working on the Waiters list
+							$("li:contains(" + name + ")").addClass("working")
+							#Mark as working in the Waiter Map
+							$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
+							#Clear out the update object
+							window.update = {}
+							#Maintain state in window.tables
+							window.tables[table]["waiter"] = name
 						#Highlight table with party
-						addCircle(this)
+						if type is "party"
+							addCircle(window.tables[table]["table"]) 
+						console.log this
+						$(this).remove
+					failure: ->
+						alert "Sorry, that is not a valid selection."
 				)
 		$("tr",onduty).hover (->
 			waiternm = $(this).children('td').eq(1).text()
@@ -43,11 +50,9 @@ $ ->
 				for key, pair of window.tables
 					if pair["waiter"] == waiternm
 					  #Highlight waiters
-						#tableRows = $("tr:contains(" + waiternm + ")")
 						$(pair["maprow"]).addClass("highlightedworking") if $(this).hasClass("working")
-						pair["table"].attr("fill","#f00")
 						#Highlight tables
-			
+						pair["table"].attr("fill","#f00")
 		), ->
 			#Unhighlight Waiters
 			$("tr", onduty).removeClass("highlightedworking")

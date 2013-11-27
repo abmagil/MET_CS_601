@@ -7,6 +7,5 @@ $ ->
     addbtn = $("#notifications").prepend data
     $('button', addbtn).on
       click: ->
-        console.log $(this).parent().next()
         window.update["type"] = "party"
         window.update["data"] = $(this).parent().next().val()

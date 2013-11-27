@@ -5,6 +5,9 @@
 #  id         :integer          not null, primary key
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#  table_id   :integer
+#  seated     :boolean
+#  done       :boolean
 #
 
 require 'test_helper'
