@@ -35,7 +35,7 @@ $ ->
 						#Maintain state in window.tables
 						window.tables[table]["waiter"] = name
 						#Highlight table with party
-						addCircle(el)
+						addCircle(this)
 				)
 		$("tr",onduty).hover (->
 			waiternm = $(this).children('td').eq(1).text()
@@ -48,32 +48,32 @@ $ ->
 						pair["table"].attr("fill","#f00")
 						#Highlight tables
 			
-		), -> 
-		  #Unhighlight Waiters
+		), ->
+			#Unhighlight Waiters
 			$("tr", onduty).removeClass("highlightedworking")
 			#unhighlight tables
-      waiternm = $(this).children('td').eq(1).text()
-      if (waiternm)
-        for key,pair of window.tables
-          pair["table"].attr("fill", "black")
+			waiternm = $(this).children('td').eq(1).text()
+			if (waiternm)
+				for key,pair of window.tables
+					pair["table"].attr("fill", "black")
 
 
 addCircle = (el) ->
-  paper = el.paper
-  wrap = []
-  wrap.push(center(el))
-  paper.add(wrap)
+	paper = el.paper
+	wrap = []
+	wrap.push(center(el))
+	paper.add(wrap)
 #Returns an object which can be added to the canvas (after wrapping) with radius equal to the size of the passed element and centered on it
 center = (element) ->
 	rtn =
 		"type" : "circle"
 		"fill" : "#f00"
 	if element.type == 'circle'
-	 	rtn["cx"] = element.attr("cx")
-	 	rtn["cy"] = element.attr("cy")
-	 	rtn["r"] = element.attr("r")
- 	else if element.type == 'rect'
-	 	rtn["cx"] = element.attr("x") + (element.attr("width") / 2)
-	 	rtn["cy"] = element.attr("y") + (element.attr("height") / 2)
-	 	rtn["r"] = element.attr("height") /2
+		rtn["cx"] = element.attr("cx")
+		rtn["cy"] = element.attr("cy")
+		rtn["r"] = element.attr("r")
+	else if element.type == 'rect'
+		rtn["cx"] = element.attr("x") + (element.attr("width") / 2)
+		rtn["cy"] = element.attr("y") + (element.attr("height") / 2)
+		rtn["r"] = element.attr("height") /2
 	rtn
