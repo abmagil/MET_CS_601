@@ -17,7 +17,7 @@ $ ->
 				 	beforeSend:  ->
 				 		window.update["data"] && window.update["type"]
 				 	type: "POST"
-				 	url: '/tables/' + el.attr("title")
+				 	url: '/tables/' + this.attr("title")
 				 	dataType: 'json'
 				 	data :
 				 		_method: 'put'

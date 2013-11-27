@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131121232025) do
+ActiveRecord::Schema.define(:version => 20131122235139) do
 
   create_table "parties", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -39,6 +39,7 @@ ActiveRecord::Schema.define(:version => 20131121232025) do
     t.integer  "height"
     t.integer  "radius"
     t.integer  "waiter_id"
+    t.integer  "party_id"
   end
 
   create_table "waiters", :force => true do |t|

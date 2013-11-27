@@ -7,5 +7,5 @@ $ ->
     addbtn = $("#notifications").prepend data
     $('button', addbtn).on
       click: ->
-        alert("Please select a table to seat them.")
-        
+        window.update["type"] = "party"
+        window.update["data"] = $(this).next()

@@ -16,6 +16,7 @@
 #  height        :integer
 #  radius        :integer
 #  waiter_id     :integer
+#  party_id      :integer
 #
 
 class Table < ActiveRecord::Base

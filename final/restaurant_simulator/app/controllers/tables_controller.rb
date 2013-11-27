@@ -14,11 +14,20 @@ class TablesController < ApplicationController
 
   def update
    @table = Table.find(params[:id])
-   @waiter = Waiter.find_by_name params[:data]
-   @table.waiter = @waiter
-    respond_to do |format|
-      format.json {render json: {:name=> @table.waiter.name, :table => @table.id}}
-    end
+   if params[:type] == "waiter"
+     @waiter = Waiter.find_by_name params[:data]
+     @table.waiter = @waiter
+      respond_to do |format|
+        format.json {render json: {:name=> @table.waiter.name, :table => @table.id}}
+      end
+   elsif params[:type] == "party"
+     @party = Party.find_by_id params[:data]
+     @party.table = @table
+     @table.party = @party
+     respond_to do |format|
+        format.json {render json: {:name=> @table.waiter.name, :table => @table.id}}
+      end
+   end
   end
 
   private
