@@ -18,14 +18,14 @@ class TablesController < ApplicationController
      @waiter = Waiter.find_by_name params[:data]
      @table.waiter = @waiter
       respond_to do |format|
-        format.json {render json: {:name=> @table.waiter.name, :table => @table.id}}
+        format.json {render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id}}
       end
    elsif params[:type] == "party"
      @party = Party.find_by_id params[:data]
-     @party.table = @table
+#     @party.table = @table
      @table.party = @party
      respond_to do |format|
-        format.json {render json: {:name=> @table.waiter.name, :table => @table.id}}
+        format.json {render json: {:data => "party", :name=> @table.party.id, :table => @table.id}}
       end
    end
   end
