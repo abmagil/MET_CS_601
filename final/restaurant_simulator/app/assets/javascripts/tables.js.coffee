@@ -37,10 +37,20 @@ $ ->
 		$("tr",onduty).hover (->
 			waiternm = $(this).children('td').eq(1).text()
 			if (waiternm)
-				tableRows = $("tr:contains(" + waiternm + ")")
-				tableRows.addClass("highlightedworking") if $(this).hasClass("working")
+				for pair in window.tables
+					console.log this
+					if pair["waiter"] = waiternm
+						#Highlight waiters
+						tableRows = $("tr:contains(" + waiternm + ")")
+						tableRows.addClass("highlightedworking") if $(this).hasClass("working")
+						#Highlight tables
+						pair["table"].node.attr("fill", "f00")
+			
 		), -> 
 			$("tr", onduty).removeClass("highlightedworking")
+			for pair in window.tables
+			  pair["table"].node.attr("fill", "000")
+
 
 
 addCircle = (el) ->
