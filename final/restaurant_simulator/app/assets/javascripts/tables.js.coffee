@@ -11,7 +11,7 @@ $ ->
 			el = paper.add([json_str])[0]
 			id = el.attr('title')
 			r = $("<tr><td>Table <span>" + id + "</span></td><td></td></tr>").appendTo(onduty)
-			window.tables[id] = {"table": el.node, "waiter": r[0]}	#Maps between table ID, table and waitermap
+			window.tables[id] = {"table": el, "waiter": r[0]}	#Maps between table ID, table and waitermap
 			el.click ->
 				 $.ajax(
 				 	beforeSend:  ->
@@ -29,6 +29,7 @@ $ ->
 				 		$("li:contains(" + name + ")").addClass("working")
 				 		$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
 				 		window.update = {}
+				 		window.tables[table]["waiter"] = name
 				 		addCircle(el)
 				 )
 				
@@ -38,10 +39,6 @@ $ ->
 			if (waiternm)
 				tableRows = $("tr:contains(" + waiternm + ")")
 				tableRows.addClass("highlightedworking") if $(this).hasClass("working")
-				$("span:first", tableRows).each ->
-					id = $(this).text()
-					shape = paper.getById(id-1) #TODO Raphael might count from 0, might be using its own thing.
-					shape.animate(fill: 'fff')
 		), -> 
 			$("tr", onduty).removeClass("highlightedworking")
 
