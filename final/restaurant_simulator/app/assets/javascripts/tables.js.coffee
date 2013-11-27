@@ -4,9 +4,14 @@
 $ -> 
  $("#canvasholder").ready ->
 	paper = new Raphael(document.getElementById('canvasholder'))
+	window.tables ?= {}
+	onduty = $("#tablewaitermap > table")
 	$.ajax(url: '/tables').done (json) ->
-		paper.add(json)
-		paper.forEach (el) ->
+		for json_str in json
+			el = paper.add([json_str])[0]
+			id = el.attr('title')
+			r = $("<tr><td>Table <span>" + id + "</span></td><td></td></tr>").appendTo(onduty)
+			window.tables[id] = {"table": el.node, "waiter": r[0]}	#Maps between table ID, table and waitermap
 			el.click ->
 				 $.ajax(
 				 	beforeSend:  ->
@@ -23,18 +28,20 @@ $ ->
 				 		table =  data["table"] 
 				 		$("li:contains(" + name + ")").addClass("working")
 				 		$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
-				 		$()
 				 		window.update = {}
 				 		addCircle(el)
 				 )
 				
 		onduty = $("#tablewaitermap > table")
-		for t in json
-			onduty.append "<tr><td>Table " + t.title + "</td><td></td></tr>"
 		$("tr",onduty).hover (->
 			waiternm = $(this).children('td').eq(1).text()
-			tables = $("tr:contains(" + waiternm + ")")
-			tables.addClass("highlightedworking") if $(this).hasClass("working")
+			if (waiternm)
+				tableRows = $("tr:contains(" + waiternm + ")")
+				tableRows.addClass("highlightedworking") if $(this).hasClass("working")
+				$("span:first", tableRows).each ->
+					id = $(this).text()
+					shape = paper.getById(id-1) #TODO Raphael might count from 0, might be using its own thing.
+					shape.animate(fill: 'fff')
 		), -> 
 			$("tr", onduty).removeClass("highlightedworking")
 
