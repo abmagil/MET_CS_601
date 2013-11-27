@@ -22,7 +22,7 @@ $ ->
 					data :
 						_method: 'put'
 						type: window.update["type"]
-						data: window.update["data"].innerHTML	if window.update["data"]#Throws uncaught reference error before this is set, but the code shouldn't be called because of beforeSend
+						data: window.update["data"] 	#Throws uncaught reference error before this is set, but the code shouldn't be called because of beforeSend
 					success: (data, textStatus, jqXHR) ->
 						name = data["name"]
 						table =  data["table"] 
@@ -37,7 +37,6 @@ $ ->
 						#Highlight table with party
 						addCircle(el)
 				)
->>>>>>> Highlighting tables now works.
 		$("tr",onduty).hover (->
 			waiternm = $(this).children('td').eq(1).text()
 			if (waiternm)
@@ -57,8 +56,6 @@ $ ->
       if (waiternm)
         for key,pair of window.tables
           pair["table"].attr("fill", "black")
-
-
 
 
 addCircle = (el) ->
