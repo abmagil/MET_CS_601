@@ -11,45 +11,53 @@ $ ->
 			el = paper.add([json_str])[0]
 			id = el.attr('title')
 			r = $("<tr><td>Table <span>" + id + "</span></td><td></td></tr>").appendTo(onduty)
-			window.tables[id] = {"table": el, "waiter": r[0]}	#Maps between table ID, table and waitermap
+			window.tables[id] = {"table": el, "maprow": r[0]}	#Maps between table ID, table and waitermap
 			el.click ->
-				 $.ajax(
-				 	beforeSend:  ->
-				 		window.update["data"] && window.update["type"]
-				 	type: "POST"
-				 	url: '/tables/' + this.attr("title")
-				 	dataType: 'json'
-				 	data :
-				 		_method: 'put'
-				 		type: window.update["type"]
-				 		data: window.update["data"]	#Throws uncaught reference error before this is set, but the code shouldn't be called because of beforeSend
-				 	success: (data, textStatus, jqXHR) ->
-				 		name = data["name"]
-				 		table =  data["table"] 
-				 		$("li:contains(" + name + ")").addClass("working")
-				 		$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
-				 		window.update = {}
-				 		window.tables[table]["waiter"] = name
-				 		addCircle(el)
-				 )
-				
-		onduty = $("#tablewaitermap > table")
+				$.ajax(
+					beforeSend:  ->
+						window.update.hasOwnProperty("type") && window.update.hasOwnProperty("data") 
+					type: "POST"
+					url: '/tables/' + this.attr("title")
+					dataType: 'json'
+					data :
+						_method: 'put'
+						type: window.update["type"]
+						data: window.update["data"].innerHTML	if window.update["data"]#Throws uncaught reference error before this is set, but the code shouldn't be called because of beforeSend
+					success: (data, textStatus, jqXHR) ->
+						name = data["name"]
+						table =  data["table"] 
+						#Mark as working on the Waiters list
+						$("li:contains(" + name + ")").addClass("working")
+						#Mark as working in the Waiter Map
+						$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
+						#Clear out the update object
+						window.update = {}
+						#Maintain state in window.tables
+						window.tables[table]["waiter"] = name
+						#Highlight table with party
+						addCircle(el)
+				)
+>>>>>>> Highlighting tables now works.
 		$("tr",onduty).hover (->
 			waiternm = $(this).children('td').eq(1).text()
 			if (waiternm)
-				for pair in window.tables
-					console.log this
-					if pair["waiter"] = waiternm
-						#Highlight waiters
-						tableRows = $("tr:contains(" + waiternm + ")")
-						tableRows.addClass("highlightedworking") if $(this).hasClass("working")
+				for key, pair of window.tables
+					if pair["waiter"] == waiternm
+					  #Highlight waiters
+						#tableRows = $("tr:contains(" + waiternm + ")")
+						$(pair["maprow"]).addClass("highlightedworking") if $(this).hasClass("working")
+						pair["table"].attr("fill","#f00")
 						#Highlight tables
-						pair["table"].node.attr("fill", "f00")
 			
 		), -> 
+		  #Unhighlight Waiters
 			$("tr", onduty).removeClass("highlightedworking")
-			for pair in window.tables
-			  pair["table"].node.attr("fill", "000")
+			#unhighlight tables
+      waiternm = $(this).children('td').eq(1).text()
+      if (waiternm)
+        for key,pair of window.tables
+          pair["table"].attr("fill", "black")
+
 
 
 
