@@ -38,8 +38,8 @@ $ ->
 							window.tables[table]["waiter"] = name
 						#Highlight table with party
 						if type is "party"
-							addCircle(window.tables[table]["table"]) 
-						console.log this
+							addCircle(window.tables[table]["table"])
+							$("input[value=" + data["name"] + "]").parent().remove()
 						$(this).remove
 					failure: ->
 						alert "Sorry, that is not a valid selection."
