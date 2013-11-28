@@ -21,11 +21,20 @@ class TablesController < ApplicationController
 					format.json {render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id}}
 				end
 		elsif params[:type] == "party"
+      if not @table.waiter?
+          render json: {:data => "fail", :message => "That table does not have a waiter"} and return
+      end
 			@party = Party.find_by_id params[:data]
-			@table.party = @party
-			 respond_to do |format|
+			if @table.party
+        respond_to do |format|
+          format.json {render json: {:data => "fail", :message => "That table already has a party assigned"}} and return
+        end
+      else
+        @table.party = @party
+			  respond_to do |format|
 					format.json {render json: {:data => "party", :name=> @table.party.id, :table => @table.id}}
-				end
+			   end
+       end
 		end
 	end
 

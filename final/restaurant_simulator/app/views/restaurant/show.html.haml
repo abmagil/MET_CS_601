@@ -1,14 +1,14 @@
 %div#full
   .row-fluid#top
-    .col-xs-2#tablewaitermap
-      = render 'waiter/onduty'
-    .col-xs-10#main
-      = render 'tables' 
-  .row-fluid#bottom
-    .col-xs-5#notification
-      = render 'tables/arrive'
-      -#= render 'party/show'
     .col-xs-2#waiters
       = render 'waiter/offduty'
-    .col-xs-5#status
+    .col-xs-8#main
+      = render 'tables' 
+    .col-xs-2#tablewaitermap
+      = render 'waiter/onduty'
+  .row-fluid#bottom
+    .col-xs-6#notification
+      = render 'tables/arrive'
+      -#= render 'party/show'
+    .col-xs-6#status
       = render 'status'

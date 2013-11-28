@@ -41,6 +41,8 @@ $ ->
 							addCircle(window.tables[table]["table"])
 							$("input[value=" + data["name"] + "]").parent().remove()
 						$(this).remove
+						if type is "fail"
+							alert data["message"]
 					failure: ->
 						alert "Sorry, that is not a valid selection."
 				)
