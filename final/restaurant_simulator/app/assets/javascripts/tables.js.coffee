@@ -31,7 +31,7 @@ $ ->
 							#Mark as working on the Waiters list
 							$("li:contains(" + name + ")")
 								.addClass("working")
-								.children("button").removeClass("hidden")
+								.children("button").removeClass("hidden")	#Unhide the button to unassign
 							#Mark as working in the Waiter Map
 							$("td:contains(Table " +table+ ")").next().text(name).parent()
 								.addClass("working")

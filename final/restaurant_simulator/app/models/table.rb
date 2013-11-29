@@ -29,7 +29,7 @@ class Table < ActiveRecord::Base
   validates :x, :y, :presence => true
 
   def waiter?
-  	return self.waiter.nil?
+  	return !self.waiter.nil?
   end
 
 

@@ -17,24 +17,19 @@ class TablesController < ApplicationController
 		if params[:type] == "waiter"
 			@waiter = Waiter.find_by_name params[:data]
 			@table.waiter = @waiter
-				respond_to do |format|
-					format.json {render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id}}
-				end
+			@table.save
+			render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id} and return
 		elsif params[:type] == "party"
       if not @table.waiter?
           render json: {:data => "fail", :message => "That table does not have a waiter"} and return
       end
 			@party = Party.find_by_id params[:data]
 			if @table.party
-        respond_to do |format|
-          format.json {render json: {:data => "fail", :message => "That table already has a party assigned"}} and return
-        end
+        render json: {:data => "fail", :message => "That table already has a party assigned"} and return	
       else
         @table.party = @party
-			  respond_to do |format|
-					format.json {render json: {:data => "party", :name=> @table.party.id, :table => @table.id}}
-			   end
-       end
+				render json: {:data => "party", :name=> @table.party.id, :table => @table.id} and return
+			end
 		end
 	end
 
