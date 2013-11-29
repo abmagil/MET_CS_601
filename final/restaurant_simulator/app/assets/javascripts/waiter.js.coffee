@@ -7,4 +7,4 @@ $ ->
   $("#offduty li").on 
     click: ->
     	window.update["type"] = "waiter"
-    	window.update["data"] = $(this).text()
+    	window.update["data"] = $(this).attr("name")

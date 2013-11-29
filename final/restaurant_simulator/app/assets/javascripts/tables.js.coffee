@@ -31,12 +31,11 @@ $ ->
 							#Mark as working on the Waiters list
 							$("li:contains(" + name + ")")
 								.addClass("working")
-								.append('<button type="button" class="close" aria-hidden="true">&times;</button>')
+								.children("button").removeClass("hidden")
 							#Mark as working in the Waiter Map
 							$("td:contains(Table " +table+ ")").next().text(name).parent()
 								.addClass("working")
-								.append('<button type="button" class="close" aria-hidden="true">&times;</button>')
-
+								.append('<td><button type="button" class="close" aria-hidden="true">&times;</button></td>')
 							#Clear out the update object
 							window.update = {}
 							#Maintain state in window.tables
