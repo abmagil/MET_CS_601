@@ -4,11 +4,13 @@
 $ -> 
  $("#canvasholder").ready ->
 	paper = new Raphael(document.getElementById('canvasholder'))
+	paper.setViewBox(0,0,800,800, true)
 	window.tables ?= {}
 	onduty = $("#tablewaitermap > table")
 	$.ajax(url: '/tables').done (json) ->
 		for json_str in json
 			el = paper.add([json_str])[0]
+			add_tag(el)
 			id = el.attr('title')
 			r = $("<tr><td>Table <span>" + id + "</span></td><td></td></tr>").appendTo(onduty)
 			window.tables[id] = {"table": el, "maprow": r[0]}	#Maps between table ID, table and waitermap
@@ -58,7 +60,7 @@ $ ->
 					  #Highlight waiters
 						$(pair["maprow"]).addClass("highlightedworking") if $(this).hasClass("working")
 						#Highlight tables
-						pair["table"].attr("fill","#f00")
+						pair["table"].attr("fill","#FF8900")
 		), ->
 			#Unhighlight Waiters
 			$("tr", onduty).removeClass("highlightedworking")
@@ -68,6 +70,20 @@ $ ->
 				for key,pair of window.tables
 					pair["table"].attr("fill", "black")
 
+add_tag = (el) ->
+	paper = el.paper
+	wrap = []
+	middle = el.getBBox()
+	rtn =
+		"type" : "circle"
+		"fill" : "white"
+		"cx" : middle["x"]
+		"cy" : middle["y"]
+		"r" : 15
+		"title" : el.attr("title")
+	wrap.push rtn
+	paper.add(wrap)
+	paper.text(middle["x"], middle["y"], el.attr("title")).attr("font-size", 18)
 
 addCircle = (el) ->
 	paper = el.paper
