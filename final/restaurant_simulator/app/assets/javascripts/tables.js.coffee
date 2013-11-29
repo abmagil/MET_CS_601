@@ -29,9 +29,14 @@ $ ->
 						table =  data["table"] 
 						if type is "waiter"
 							#Mark as working on the Waiters list
-							$("li:contains(" + name + ")").addClass("working")
+							$("li:contains(" + name + ")")
+								.addClass("working")
+								.append('<button type="button" class="close" aria-hidden="true">&times;</button>')
 							#Mark as working in the Waiter Map
-							$("td:contains(Table " +table+ ")").next().text(name).parent().addClass("working")
+							$("td:contains(Table " +table+ ")").next().text(name).parent()
+								.addClass("working")
+								.append('<button type="button" class="close" aria-hidden="true">&times;</button>')
+
 							#Clear out the update object
 							window.update = {}
 							#Maintain state in window.tables
