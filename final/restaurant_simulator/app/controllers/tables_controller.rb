@@ -67,6 +67,7 @@ class TablesController < ApplicationController
 				:type => "rect",
 				:x => table.x,
 				:y => table.y,
+				:r => 5,
 				:width => table.width,
 				:height => table.height,
 				:fill => '#000',
