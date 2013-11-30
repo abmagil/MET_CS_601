@@ -4,6 +4,7 @@
 $ -> 
  $("#canvasholder").ready ->
 	paper = new Raphael(document.getElementById('canvasholder'))
+	#This was a stackoverflow solution, but I lost the citation.
 	paper.customAttributes.arc = (xloc, yloc, value, total, R) ->
 		alpha = 360 / total * value
 		a = (90 - alpha) * Math.PI / 180
@@ -19,11 +20,11 @@ $ ->
 	onduty = $("#tablewaitermap > table")
 	$.ajax(url: '/tables').done (json) ->
 		for json_str in json
+			id = json_str['title']
+			r = $("<tr><td>Table <span>" + id + "</span></td><td></td><td><button type='button' class='close hidden' aria-hidden='true'>&times;</button></td></tr>").appendTo(onduty)
+			window.tables[id] = {"maprow": r[0]} #Maps between table ID, table and waitermap
 			el = build_table(json_str, paper)
 			add_tag(el)
-			id = el.attr('title')
-			r = $("<tr><td>Table <span>" + id + "</span></td><td></td></tr>").appendTo(onduty)
-			window.tables[id] = {"table": el, "maprow": r[0]}	#Maps between table ID, table and waitermap
 			el.click ->
 				$.ajax(
 					beforeSend:  ->
@@ -38,25 +39,15 @@ $ ->
 					success: (data, textStatus, jqXHR) ->
 						type = data["data"]
 						name = data["name"]
-						table =  data["table"] 
+						tableID =  data["table"] 
 						if type is "waiter"
-							#Mark as working on the Waiters list
-							$("li:contains(" + name + ")")
-								.addClass("working")
-								.children("button").removeClass("hidden")	#Unhide the button to unassign
-							#Mark as working in the Waiter Map
-							$("td:contains(Table " +table+ ")").next().text(name).parent()
-								.addClass("working")
-								.append('<td><button type="button" class="close" aria-hidden="true">&times;</button></td>')
-							#Clear out the update object
-							window.update = {}
-							#Maintain state in window.tables
-							window.tables[table]["waiter"] = name
+							assign_waiter(name, tableID)
 						#Highlight table with party
 						if type is "party"
-							addCircle(window.tables[table]["table"])
+							addCircle(window.tables[tableID]["table"])
 							$("input[value=" + data["name"] + "]").parent().remove()
 						$(this).remove
+						window.update = {}
 						if type is "fail"
 							alert data["message"]
 					failure: ->
@@ -67,7 +58,7 @@ $ ->
 			if (waiternm)
 				for key, pair of window.tables
 					if pair["waiter"] == waiternm
-					  #Highlight waiters
+						#Highlight waiters
 						$(pair["maprow"]).addClass("highlightedworking") if $(this).hasClass("working")
 						#Highlight tables
 						pair["table"].attr("fill","#4D2900")
@@ -82,17 +73,28 @@ $ ->
 
 build_table = (json, paper) ->
 	el = paper.add([json])[0]
+	window.tables[ json["title"] ]["table"] = el
 	start_party(el) if json["party"]
-	set_waiter(el) if json["waiter"]
+	assign_waiter(json["waiter"], el.attr("title")) if json["waiter"]
 	return el
 
 start_party = (el) ->
 	addCircle(el)
 
-set_waiter = (el) ->
-	console.log el
+assign_waiter = (waiter, table) ->
+	tableID = table
+	#Mark as working on the Waiters list
+	$("li:contains(" + waiter + ")")
+		.addClass("working")
+		.children("button").removeClass("hidden")	#Unhide the button to unassign
+	# #Mark as working in the Waiter Map
+	$("td:contains(Table " +tableID+ ")").next().text(waiter).parent()
+		.addClass("working")
+		.find("button").removeClass("hidden")
+	# #Maintain state in window.tables
+	window.tables[tableID]["waiter"] = waiter
 
-
+##Add an identification tag to each table
 add_tag = (el) ->
 	paper = el.paper
 	wrap = []
@@ -128,7 +130,6 @@ addCircle = (el) ->
 	# $.extend(rtn,midpoint)
 	# wrap.push(rtn)
 	# paper.add(wrap)
-
 
 #returns the midpoint and smallest-side size of a passed element in object form
 center = (element) ->
