@@ -28,5 +28,13 @@ class Table < ActiveRecord::Base
   validates :capacity, :numericality => {:only_integer => true}
   validates :x, :y, :presence => true
 
+  def waiter?
+  	return !self.waiter.nil?
+  end
+
+  def party?
+  	return self.party ? true : false
+  end
+
 
 end

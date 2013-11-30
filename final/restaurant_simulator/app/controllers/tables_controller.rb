@@ -17,29 +17,32 @@ class TablesController < ApplicationController
 		if params[:type] == "waiter"
 			@waiter = Waiter.find_by_name params[:data]
 			@table.waiter = @waiter
-				respond_to do |format|
-					format.json {render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id}}
-				end
+			@table.save
+			render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id} and return
 		elsif params[:type] == "party"
-			@party = Party.find_by_id params[:data]
+			if not @table.waiter?
+				render json: {:data => "fail", :message => "That table does not have a waiter"} and return
+			end
+		@party = Party.find_by_id params[:data]
+		if @table.party
+			render json: {:data => "fail", :message => "That table already has a party assigned"} and return	
+		else
 			@table.party = @party
-			 respond_to do |format|
-					format.json {render json: {:data => "party", :name=> @table.party.id, :table => @table.id}}
-				end
+			@table.occupied
+			@table.save
+			render json: {:data => "party", :name=> @table.party.id, :table => @table.id} and return
+		end
 		end
 	end
 
 	private
 
 	def custom_json(tables)
-		circs = tables.where(type: "RoundTable")
-		rects = tables.where(type: "RectTable")
-		
 		list = []
-		circs.each do |table|
+		tables.where(type: "RoundTable").each do |table|
 			list << round_table_json(table)
 		end
-		rects.each do |table|
+		tables.where(type: "RectTable").each do |table|
 			list << rect_table_json(table)
 		end
 		list.to_json
@@ -54,6 +57,9 @@ class TablesController < ApplicationController
 				:fill => '#000',
 				:title => table.id
 			}
+			jsonified[:waiter] = table.waiter.name if table.waiter?
+			jsonified[:party] = table.party?
+			jsonified
 	end
 
 	def rect_table_json(table)
@@ -66,6 +72,9 @@ class TablesController < ApplicationController
 				:fill => '#000',
 				:title => table.id
 			}
+			jsonified[:waiter] = table.waiter.name if table.waiter?
+			jsonified[:party] = table.party?
+			jsonified
 	end
 	
 end

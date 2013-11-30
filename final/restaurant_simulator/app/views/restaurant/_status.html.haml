@@ -4,7 +4,7 @@
       %h2 Status
     %tr
       %td{:colspan => 3} Tables Occupied
-      %td= Restaurant.first.tables.count('occupied')
+      %td= Party.where("table_id is NOT NULL").count
     %tr
       %td{:colspan => 3} Bank Account
       %td= Restaurant.first.cash_on_hand
