@@ -4,12 +4,22 @@
 $ -> 
  $("#canvasholder").ready ->
 	paper = new Raphael(document.getElementById('canvasholder'))
-	paper.setViewBox(0,0,800,800, true)
+	paper.customAttributes.arc = (xloc, yloc, value, total, R) ->
+		alpha = 360 / total * value
+		a = (90 - alpha) * Math.PI / 180
+		x = xloc + R * Math.cos(a)
+		y = yloc - R * Math.sin(a)
+		path = undefined
+		if total is value
+			path = [["M", xloc, yloc - R], ["A", R, R, 0, 1, 1, xloc - 0.01, yloc - R]]
+		else
+			path = [["M", xloc, yloc - R], ["A", R, R, 0, +(alpha > 180), 1, x, y]]
+		path: path
 	window.tables ?= {}
 	onduty = $("#tablewaitermap > table")
 	$.ajax(url: '/tables').done (json) ->
 		for json_str in json
-			el = paper.add([json_str])[0]
+			el = build_table(json_str, paper)
 			add_tag(el)
 			id = el.attr('title')
 			r = $("<tr><td>Table <span>" + id + "</span></td><td></td></tr>").appendTo(onduty)
@@ -60,7 +70,7 @@ $ ->
 					  #Highlight waiters
 						$(pair["maprow"]).addClass("highlightedworking") if $(this).hasClass("working")
 						#Highlight tables
-						pair["table"].attr("fill","#FF8900")
+						pair["table"].attr("fill","#4D2900")
 		), ->
 			#Unhighlight Waiters
 			$("tr", onduty).removeClass("highlightedworking")
@@ -69,6 +79,16 @@ $ ->
 			if (waiternm)
 				for key,pair of window.tables
 					pair["table"].attr("fill", "black")
+
+build_table = (json, paper) ->
+	el = paper.add([json])[0]
+	start_party(el) if json["party"]
+	# set_waiter(el) if json["waiter"]
+	return el
+
+start_party = (el) ->
+	addCircle(el)
+
 
 add_tag = (el) ->
 	paper = el.paper
@@ -85,22 +105,36 @@ add_tag = (el) ->
 	paper.add(wrap)
 	paper.text(middle["x"], middle["y"], el.attr("title")).attr("font-size", 18)
 
+#Draws a circle with radius equal to the size of the shortest edge of the passed element and centered on it
 addCircle = (el) ->
 	paper = el.paper
-	wrap = []
-	wrap.push(center(el))
-	paper.add(wrap)
-#Returns an object which can be added to the canvas (after wrapping) with radius equal to the size of the passed element and centered on it
+	midpoint = center(el)
+	arc = paper.path().attr(
+		stroke: "#f00"
+		"stroke-width" : 14
+		arc: [midpoint["cx"], midpoint["cy"], 0,100,midpoint["r"] - 5]
+		)
+	arc.animate
+		arc: [midpoint["cx"], midpoint["cy"], 100, 100, midpoint["r"] - 5]
+		, 8500, "linear"
+	# wrap = []
+	# midpoint = center(el)
+	# rtn =
+	# 	"type" : "circle"
+	# 	"fill" : "#f00"
+	# $.extend(rtn,midpoint)
+	# wrap.push(rtn)
+	# paper.add(wrap)
+
+
+#returns the midpoint and smallest-side size of a passed element in object form
 center = (element) ->
-	rtn =
-		"type" : "circle"
-		"fill" : "#f00"
-	if element.type == 'circle'
-		rtn["cx"] = element.attr("cx")
-		rtn["cy"] = element.attr("cy")
-		rtn["r"] = element.attr("r")
-	else if element.type == 'rect'
-		rtn["cx"] = element.attr("x") + (element.attr("width") / 2)
-		rtn["cy"] = element.attr("y") + (element.attr("height") / 2)
-		rtn["r"] = element.attr("height") /2
+	middle = element.getBBox()
+	rtn = {}
+	# 	"type" : "circle"
+	# 	"fill" : "#f00"
+	rtn["cx"] =middle["x"] + middle["width"]/2
+	rtn["cy"] = middle["y"] + middle["height"] /2
+	widerThanTall = middle["height"] < middle["width"]
+	rtn["r"] = (if widerThanTall then middle["height"]/2 else middle["width"]/2)
 	rtn

@@ -56,6 +56,7 @@ class TablesController < ApplicationController
 				:title => table.id
 			}
 			jsonified[:waiter] = table.waiter.name if table.waiter?
+			jsonified[:party] = table.party?
 			jsonified
 	end
 
@@ -70,6 +71,7 @@ class TablesController < ApplicationController
 				:title => table.id
 			}
 			jsonified[:waiter] = table.waiter.name if table.waiter?
+			jsonified[:party] = table.party?
 			jsonified
 	end
 	

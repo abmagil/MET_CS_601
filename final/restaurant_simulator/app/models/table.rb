@@ -32,5 +32,9 @@ class Table < ActiveRecord::Base
   	return !self.waiter.nil?
   end
 
+  def party?
+  	return self.party ? true : false
+  end
+
 
 end

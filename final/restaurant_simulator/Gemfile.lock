@@ -47,7 +47,7 @@ GEM
     coffee-script (2.2.0)
       coffee-script-source
       execjs
-    coffee-script-source (1.6.3)
+    coffee-script-source (1.5.0)
     daemons (1.1.9)
     erubis (2.7.0)
     eventmachine (1.0.3)
@@ -129,7 +129,8 @@ DEPENDENCIES
   annotate (= 2.5.0)
   bootstrap-sass!
   bootstrap-will_paginate (= 0.0.9)
-  coffee-rails (~> 3.2.1)
+  coffee-rails (~> 3.2.2)
+  coffee-script-source (= 1.5.0)
   haml (~> 4.0.3)
   jquery-rails
   rails (= 3.2.13)
