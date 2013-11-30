@@ -83,11 +83,14 @@ $ ->
 build_table = (json, paper) ->
 	el = paper.add([json])[0]
 	start_party(el) if json["party"]
-	# set_waiter(el) if json["waiter"]
+	set_waiter(el) if json["waiter"]
 	return el
 
 start_party = (el) ->
 	addCircle(el)
+
+set_waiter = (el) ->
+	console.log el
 
 
 add_tag = (el) ->

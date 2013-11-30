@@ -20,16 +20,18 @@ class TablesController < ApplicationController
 			@table.save
 			render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id} and return
 		elsif params[:type] == "party"
-	  if not @table.waiter?
-		render json: {:data => "fail", :message => "That table does not have a waiter"} and return
-	  end
-			@party = Party.find_by_id params[:data]
-			if @table.party
-		render json: {:data => "fail", :message => "That table already has a party assigned"} and return	
-	  else
-		@table.party = @party
-				render json: {:data => "party", :name=> @table.party.id, :table => @table.id} and return
+			if not @table.waiter?
+				render json: {:data => "fail", :message => "That table does not have a waiter"} and return
 			end
+		@party = Party.find_by_id params[:data]
+		if @table.party
+			render json: {:data => "fail", :message => "That table already has a party assigned"} and return	
+		else
+			@table.party = @party
+			@table.occupied
+			@table.save
+			render json: {:data => "party", :name=> @table.party.id, :table => @table.id} and return
+		end
 		end
 	end
 
