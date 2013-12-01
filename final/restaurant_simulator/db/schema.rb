@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131127161425) do
+ActiveRecord::Schema.define(:version => 20131201003703) do
 
   create_table "parties", :force => true do |t|
     t.datetime "created_at", :null => false
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(:version => 20131127161425) do
   end
 
   create_table "restaurants", :force => true do |t|
-    t.integer  "cash_on_hand"
+    t.float    "cash_on_hand"
     t.integer  "customers_served"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
@@ -47,9 +47,10 @@ ActiveRecord::Schema.define(:version => 20131127161425) do
   create_table "waiters", :force => true do |t|
     t.boolean  "onduty"
     t.boolean  "good"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "name"
+    t.float    "bank_account", :default => 100.0
   end
 
 end

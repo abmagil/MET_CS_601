@@ -3,7 +3,7 @@
 # Table name: restaurants
 #
 #  id               :integer          not null, primary key
-#  cash_on_hand     :integer
+#  cash_on_hand     :float
 #  customers_served :integer
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null

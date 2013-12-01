@@ -2,12 +2,13 @@
 #
 # Table name: waiters
 #
-#  id         :integer          not null, primary key
-#  onduty     :boolean
-#  good       :boolean
-#  created_at :datetime         not null
-#  updated_at :datetime         not null
-#  name       :string(255)
+#  id           :integer          not null, primary key
+#  onduty       :boolean
+#  good         :boolean
+#  created_at   :datetime         not null
+#  updated_at   :datetime         not null
+#  name         :string(255)
+#  bank_account :float            default(100.0)
 #
 
 class Waiter < ActiveRecord::Base

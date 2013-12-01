@@ -7,7 +7,7 @@
       %td= Party.where("table_id is NOT NULL").count
     %tr
       %td{:colspan => 3} Bank Account
-      %td= Restaurant.first.cash_on_hand
+      %td= "%0.2f" % Restaurant.first.cash_on_hand
     %tr
       %td{:colspan => 3} Customers Served
       %td= Restaurant.first.customers_served

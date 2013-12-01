@@ -4,8 +4,13 @@ class TablesController < ApplicationController
 
 	end
 
+	def show
+		@table = Table.find(params[:id])
+		render partial: 'party/stand', object: @table
+	end
+
 	def create
-			@table = Table.new
+		@table = Table.new
 	end
 
 	def index
