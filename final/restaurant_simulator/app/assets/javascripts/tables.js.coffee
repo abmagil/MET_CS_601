@@ -21,7 +21,10 @@ $ ->
 	$.ajax(url: '/tables').done (json) ->
 		for json_str in json
 			id = json_str['title']
-			r = $("<tr><td>Table <span>" + id + "</span></td><td></td><td><button type='button' class='close hidden' aria-hidden='true'>&times;</button></td></tr>").appendTo(onduty)
+			r = $("<tr><td>Table <span>" + id + "</span></td><td class='waiter'></td><td><button type='button' class='close hidden' aria-hidden='true'>&times;</button></td></tr>").appendTo(onduty)
+			r.find("button").on
+				click: ->
+					unassign_waiter(this)
 			window.tables[id] = {"maprow": r[0]} #Maps between table ID, table and waitermap
 			el = build_table(json_str, paper)
 			el.click ->
@@ -102,6 +105,29 @@ assign_waiter = (waiter, table) ->
 	tag = window.tables[tableID]["table"].data("tag")
 	tag.attr("fill", "#449065")	##To show which tables are waited on.	
 
+
+unassign_waiter = (button) ->
+	tableID = $(button).parent().prev().prev().find("span").text()
+	$.ajax(
+		url: "/tables/" + tableID
+		type: "POST"
+		data:
+			_method: "put"
+			type: "waiter"
+			event: "unassign"
+		success: (data, textStatus, jqXHR) ->
+			if data["removed"]
+				maprow = window.tables[ data["table"] ]["maprow"]
+				# console.log maprow
+				$(maprow).removeClass("working highlightedworking")
+				$(".waiter", maprow).text("")
+				window.tables[tableID]["waiter"] = undefined
+				clear_tag(window.tables[tableID]["table"])
+				$("button", maprow).addClass("hidden")
+			else
+				alert "Please finish your shift before taking off for the night."
+		)
+
 ##Add an identification tag to each table
 add_tag = (el) ->
 	paper = el.paper
@@ -118,6 +144,10 @@ add_tag = (el) ->
 	tag = paper.add(wrap)
 	paper.text(middle["x"], middle["y"], el.attr("title")).attr("font-size", 18)
 	el.data("tag", tag)
+
+clear_tag = (el) ->
+	tag = el.data("tag")
+	tag.attr("fill", "white")
 
 #Draws a circle with radius equal to the size of the shortest edge of the passed element and centered on it
 addCircle = (el) ->
@@ -190,6 +220,7 @@ replace_progress_with_icon = (el) ->
 		dollar.animate(
 			transform: translationStr + rotation_str, 1000, ">"	# Have to include translation in animation or it moves back to initial point
 		)
+
 
 #returns the midpoint and smallest-side size of a passed element in object form
 center = (element) ->

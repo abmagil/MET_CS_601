@@ -8,4 +8,3 @@ $ ->
 		click: ->
 			window.update["type"] = "waiter"
 			window.update["data"] = $(this).attr("name")
-	$("#tablewaitermap").find("button")

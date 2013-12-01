@@ -1,0 +1,7 @@
+%li
+ .row-fluid
+  .col-xs-10
+   %span Party #{@table.party.id} has stood up from Table #{@table.id}
+  .col-xs-2
+   %button{:class => "btn btn-danger"} Bus them.
+   %input{:class => "hidden", :value => @table.party.id}
