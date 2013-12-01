@@ -75,7 +75,7 @@ build_table = (json, paper) ->
 	el = paper.add([json])[0]
 	el.hover(
 		->
-			el.attr("fill", "green")
+			el.attr("fill", "green") if el.data("shape") is undefined
 		->
 			el.attr("fill", "black")
 	)
@@ -97,6 +97,8 @@ assign_waiter = (waiter, table) ->
 	$("td:contains(Table " +tableID+ ")").next().text(waiter).parent()
 		.addClass("working")
 		.find("button").removeClass("hidden")
+	# Mark as working on the table tag
+	#window.tables[tableID]["table"]
 	# #Maintain state in window.tables
 	window.tables[tableID]["waiter"] = waiter
 
