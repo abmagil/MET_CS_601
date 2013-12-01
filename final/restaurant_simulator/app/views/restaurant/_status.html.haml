@@ -4,7 +4,7 @@
       %h2 Status
     %tr
       %td{:colspan => 3} Tables Occupied
-      %td= Party.where("table_id is NOT NULL").count
+      %td= 0
     %tr
       %td{:colspan => 3} Bank Account
       %td= "%0.2f" % Restaurant.first.cash_on_hand

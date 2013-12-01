@@ -24,7 +24,6 @@ $ ->
 			r = $("<tr><td>Table <span>" + id + "</span></td><td></td><td><button type='button' class='close hidden' aria-hidden='true'>&times;</button></td></tr>").appendTo(onduty)
 			window.tables[id] = {"maprow": r[0]} #Maps between table ID, table and waitermap
 			el = build_table(json_str, paper)
-			add_tag(el)
 			el.click ->
 				$.ajax(
 					beforeSend:  ->
@@ -44,7 +43,7 @@ $ ->
 							assign_waiter(name, tableID)
 						#Highlight table with party
 						if type is "party"
-							addCircle(window.tables[tableID]["table"])
+							start_party(window.tables[tableID]["table"])
 							$("input[value=" + data["name"] + "]").parent().remove()
 						$(this).remove
 						window.update = {}
@@ -75,16 +74,19 @@ build_table = (json, paper) ->
 	el = paper.add([json])[0]
 	el.hover(
 		->
-			el.attr("fill", "green") if el.data("shape") is undefined
+			el.attr("fill", "#165E35") if el.data("shape") is undefined
 		->
 			el.attr("fill", "black")
 	)
 	window.tables[ json["title"] ]["table"] = el
+	add_tag(el)
 	start_party(el) if json["party"]
 	assign_waiter(json["waiter"], el.attr("title")) if json["waiter"]
 	return el
 
 start_party = (el) ->
+	seated = $("#status").find("td:contains(Occupied)").next("td")
+	seated.text(parseInt(seated.text(), 10) + 1)
 	addCircle(el)
 
 assign_waiter = (waiter, table) ->
@@ -97,10 +99,11 @@ assign_waiter = (waiter, table) ->
 	$("td:contains(Table " +tableID+ ")").next().text(waiter).parent()
 		.addClass("working")
 		.find("button").removeClass("hidden")
-	# Mark as working on the table tag
-	#window.tables[tableID]["table"]
 	# #Maintain state in window.tables
 	window.tables[tableID]["waiter"] = waiter
+	# Mark as working on the table tag
+	tag = window.tables[tableID]["table"].data("tag")
+	tag.attr("fill", "#449065")	##To show which tables are waited on.
 
 ##Add an identification tag to each table
 add_tag = (el) ->
@@ -112,7 +115,7 @@ add_tag = (el) ->
 		"fill" : "white"
 		"cx" : middle["x"]
 		"cy" : middle["y"]
-		"r" : 15 	#TODO Bump back up to 15000
+		"r" : 15
 		"title" : el.attr("title")
 	wrap.push rtn
 	tag = paper.add(wrap)
@@ -132,7 +135,7 @@ addCircle = (el) ->
 	arc.animate
 		stroke: "#165E35"
 		arc: [midpoint["cx"], midpoint["cy"], 100, 100, midpoint["r"] - 5]
-		15 #bump up after testing
+		15000 #bump up after testing
 		"linear"
 		->
 			finish_party(el)
@@ -157,9 +160,11 @@ prompt_party_removal = (el) ->
 							_method: "put"
 							event: "bus"
 						success: (data, textStatus, jqXHR) ->
-							if data["cleared"] is "removed"
+							if data["cleared"]
 								el.data("shape").remove()
 								addrow.remove()
+								seated = $("#status").find("td:contains(Occupied)").next("td")
+								seated.text(Math.max(parseInt(seated.text(), 10) - 1, 0))
 							table = data["table"]
 					)
 	)
