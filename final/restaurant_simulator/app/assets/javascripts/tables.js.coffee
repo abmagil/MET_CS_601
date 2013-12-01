@@ -92,10 +92,7 @@ start_party = (el) ->
 assign_waiter = (waiter, table) ->
 	tableID = table
 	#Mark as working on the Waiters list
-	$("li:contains(" + waiter + ")")
-		.addClass("working")
-		.children("button").removeClass("hidden")	#Unhide the button to unassign
-	# #Mark as working in the Waiter Map
+	#Mark as working in the Waiter Map
 	$("td:contains(Table " +tableID+ ")").next().text(waiter).parent()
 		.addClass("working")
 		.find("button").removeClass("hidden")
