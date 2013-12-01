@@ -26,7 +26,7 @@ class PartyController < ApplicationController
 			restaurant.bus_table meal_price
 			restaurant.save!
 			
-			render json: {table: @party.table.id, cleared: true, waiter: @waiter.name, waiter_balance: @waiter.bank_account, rest_balance: Restaurant.first.cash_on_hand}
+			render json: {table: @party.table.id, cleared: true, waiter: @waiter.name, waiter_tip: tip, rest_balance: Restaurant.first.cash_on_hand}
 			@party.table.party = nil
 		end	
 	end

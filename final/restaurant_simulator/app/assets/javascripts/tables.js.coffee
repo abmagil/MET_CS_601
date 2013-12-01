@@ -86,7 +86,7 @@ build_table = (json, paper) ->
 
 start_party = (el) ->
 	seated = $("#status").find("td:contains(Occupied)").next("td")
-	seated.text(parseInt(seated.text(), 10) + 1)
+	add_value(seated, 1)
 	addCircle(el)
 
 assign_waiter = (waiter, table) ->
@@ -100,7 +100,7 @@ assign_waiter = (waiter, table) ->
 	window.tables[tableID]["waiter"] = waiter
 	# Mark as working on the table tag
 	tag = window.tables[tableID]["table"].data("tag")
-	tag.attr("fill", "#449065")	##To show which tables are waited on.
+	tag.attr("fill", "#449065")	##To show which tables are waited on.	
 
 ##Add an identification tag to each table
 add_tag = (el) ->
@@ -132,7 +132,7 @@ addCircle = (el) ->
 	arc.animate
 		stroke: "#165E35"
 		arc: [midpoint["cx"], midpoint["cy"], 100, 100, midpoint["r"] - 5]
-		15000 #bump up after testing
+		15 #bump up after testing
 		"linear"
 		->
 			finish_party(el)
@@ -161,10 +161,15 @@ prompt_party_removal = (el) ->
 								el.data("shape").remove()
 								addrow.remove()
 								seated = $("#status").find("td:contains(Occupied)").next("td")
-								seated.text(Math.max(parseInt(seated.text(), 10) - 1, 0))
+								add_value(seated, -1)
+								waiter_balance = $("#offduty").find("span:contains(" + data["waiter"] + ")").next()
+								# console.log waiter_balance
+								add_value(waiter_balance, data["waiter_tip"])
 							table = data["table"]
 					)
 	)
+
+
 
 replace_progress_with_icon = (el) ->
 		dollar_path_str = "M16,1.466C7.973,1.466,1.466,7.973,1.466,16c0,8.027,6.507,14.534,14.534,14.534c8.027,0,14.534-6.507,14.534-14.534C30.534,7.973,24.027,1.466,16,1.466z M17.255,23.88v2.047h-1.958v-2.024c-3.213-0.44-4.621-3.08-4.621-3.08l2.002-1.673c0,0,1.276,2.223,3.586,2.223c1.276,0,2.244-0.683,2.244-1.849c0-2.729-7.349-2.398-7.349-7.459c0-2.2,1.738-3.785,4.137-4.159V5.859h1.958v2.046c1.672,0.22,3.652,1.1,3.652,2.993v1.452h-2.596v-0.704c0-0.726-0.925-1.21-1.959-1.21c-1.32,0-2.288,0.66-2.288,1.584c0,2.794,7.349,2.112,7.349,7.415C21.413,21.614,19.785,23.506,17.255,23.88z"
@@ -195,3 +200,9 @@ center = (element) ->
 	widerThanTall = middle["height"] < middle["width"]
 	rtn["r"] = (if widerThanTall then middle["height"]/2 else middle["width"]/2)
 	rtn
+
+#Helper TODO FIX.
+add_value = (element, incrementor) ->
+	old_val = parseFloat(element.text(), 10)
+	new_val = old_val + parseFloat(incrementor, 10)
+	element.text(new_val)
