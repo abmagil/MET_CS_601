@@ -20,10 +20,21 @@ class TablesController < ApplicationController
 	def update
 		@table = Table.find(params[:id])
 		if params[:type] == "waiter"
-			@waiter = Waiter.find_by_name params[:data]
-			@table.waiter = @waiter
-			@table.save
-			render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id} and return
+			if params[:event] == "unassign"
+				if @table.party?
+					render json: {:data => "waiter", :removed => false, :table => @table.id}	#make them finish their shift
+				else
+					@waiter = @table.waiter
+					@table.waiter = nil
+					@table.save
+					render json: {:data => "waiter", :removed => true, :table => @table.id}
+				end
+			else
+				@waiter = Waiter.find_by_name params[:data]
+				@table.waiter = @waiter
+				@table.save
+				render json: {:data => "waiter", :name=> @table.waiter.name, :table => @table.id} and return
+			end
 		elsif params[:type] == "party"
 			if not @table.waiter?
 				render json: {:data => "fail", :message => "That table does not have a waiter"} and return
