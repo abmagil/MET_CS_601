@@ -3,4 +3,4 @@
  -Waiter.all.each do |w|
   %li.list-group-item{:name => w.name}
    %span= w.name
-   %button{ :type => "button", :class => "close hidden" } &times;
+   %span.pull-right= w.bank_account
