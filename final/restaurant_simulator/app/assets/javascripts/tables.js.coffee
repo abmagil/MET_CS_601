@@ -79,7 +79,8 @@ build_table = (json, paper) ->
 		->
 			el.attr("fill", "#165E35") if el.data("shape") is undefined
 		->
-			el.attr("fill", "black")
+			clear_highlight(el)
+			
 	)
 	window.tables[ json["title"] ]["table"] = el
 	add_tag(el)
@@ -123,6 +124,7 @@ unassign_waiter = (button) ->
 				$(".waiter", maprow).text("")
 				window.tables[tableID]["waiter"] = undefined
 				clear_tag(window.tables[tableID]["table"])
+				clear_highlight(window.tables[tableID]["table"])
 				$("button", maprow).addClass("hidden")
 			else
 				alert "Please finish your shift before taking off for the night."
@@ -149,6 +151,9 @@ clear_tag = (el) ->
 	tag = el.data("tag")
 	tag.attr("fill", "white")
 
+clear_highlight = (el) ->
+	el.attr("fill", "black")
+
 #Draws a circle with radius equal to the size of the shortest edge of the passed element and centered on it
 addCircle = (el) ->
 	paper = el.paper
@@ -162,7 +167,7 @@ addCircle = (el) ->
 	arc.animate
 		stroke: "#165E35"
 		arc: [midpoint["cx"], midpoint["cy"], 100, 100, midpoint["r"] - 5]
-		15 #bump up after testing
+		15000 #bump up after testing
 		"linear"
 		->
 			finish_party(el)
